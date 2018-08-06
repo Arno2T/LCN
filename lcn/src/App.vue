@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <Date />
     <Video />
   </div>
 </template>
 
 <script>
 import Video from './components/Video.vue'
+import Date from './components/Date.vue'
 
 export default {
   name: 'app',
   components: {
-    Video
+    Video,
+    Date
   }
 }
 </script>

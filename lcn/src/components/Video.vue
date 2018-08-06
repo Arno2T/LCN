@@ -1,6 +1,6 @@
 <template>
-  <div class="video">
-    <video src="http://vjs.zencdn.net/v/oceans.mp4" autoplay loop></video>
+  <div class="player">
+    <video src="http://vjs.zencdn.net/v/oceans.mp4" controls autoplay loop></video>
   </div>
 </template>
 
