@@ -10,11 +10,11 @@
 5 verbose stack     at checkBinReferences_ (/usr/share/npm/node_modules/read-package-json/read-json.js:309:45)
 5 verbose stack     at final (/usr/share/npm/node_modules/read-package-json/read-json.js:343:3)
 5 verbose stack     at then (/usr/share/npm/node_modules/read-package-json/read-json.js:113:5)
-5 verbose stack     at ReadFileContext.<anonymous> (/usr/share/npm/node_modules/read-package-json/read-json.js:297:29)
+5 verbose stack     at ReadFileContext.<anonymous> (/usr/share/npm/node_modules/read-package-json/read-json.js:284:20)
 5 verbose stack     at ReadFileContext.callback (/usr/share/npm/node_modules/graceful-fs/graceful-fs.js:76:16)
 5 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:420:13)
-6 verbose cwd /home/superadmin/Documents/Projet/LCN
-7 error Linux 4.15.0-29-generic
+6 verbose cwd /home/superadmin/Bureau/Live-Channel-Navigation/LCN
+7 error Linux 4.15.0-23-generic
 8 error argv "/usr/bin/node" "/usr/bin/npm" "run" "serve"
 9 error node v8.10.0
 10 error npm  v3.5.2
