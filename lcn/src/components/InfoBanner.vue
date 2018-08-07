@@ -13,7 +13,7 @@ export default {
 <style lang="less" scoped>
 .info {
   position: absolute;
-  margin-top: 35%;
+  top: 700px;
   height: 20vh;
   width: 99vw;
   background-color: red;

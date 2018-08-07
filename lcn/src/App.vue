@@ -2,8 +2,9 @@
   <div id="app">
     <Date v-if="railDisplay.value"/>
     <InfoBanner v-if="railDisplay.value"/>
-    <Rail v-if="railDisplay.value"/>
     <Video/>
+    <Rail v-if="railDisplay.value"/>
+    <digit-zone />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import {channelState} from './states/channel-state'
 import Video from './components/Video.vue'
 import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
+import DigitZone from './components/DigitZone.vue'
 import Rail from './components/Rail.vue'
 
 export default {
@@ -21,7 +23,7 @@ export default {
     Date,
     InfoBanner,
     Rail
-  },
+    'digit-zone': DigitZone,
   data () {
       return {
         channelState,
