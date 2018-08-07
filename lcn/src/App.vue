@@ -3,6 +3,7 @@
     <Date />
     <InfoBanner />
     <Video />
+    <digit-zone />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import Video from './components/Video.vue'
 import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
+import DigitZone from './components/DigitZone.vue'
 
 export default {
   name: 'app',
   components: {
     Video,
     Date,
-    InfoBanner
+    InfoBanner,
+    'digit-zone': DigitZone,
   }
 }
 </script>
