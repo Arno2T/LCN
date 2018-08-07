@@ -22,7 +22,6 @@ export default {
     defineDate () {
       moment.locale('fr')
       this.result = moment().format('LLLL')
-/*       console.log(this.result) */
     }
   }
 }
@@ -32,7 +31,7 @@ export default {
 .Date {
   position: absolute;
   color: white;
-  background-color: black;
+  text-shadow: 2px 2px black;
   font-size: 45px;
   margin-left: 75%;
   padding-top: 30px;
