@@ -30,6 +30,7 @@ export default {
 <style lang="less" scoped>
 .Date {
   position: absolute;
+  font-family: Verdana, sans-serif;
   color: white;
   text-shadow: 2px 2px black;
   font-size: 45px;
