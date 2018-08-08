@@ -19,7 +19,7 @@ export default {
     Video,
     Date,
     InfoBanner,
-    'digit-zone': DigitZone,
+    'digit-zone': DigitZone
   }
 }
 </script>

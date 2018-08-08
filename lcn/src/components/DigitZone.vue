@@ -1,32 +1,44 @@
 <template>
-    <div id="digit" :digit="digit">
-        {{ digit[0] }} {{digit[1]}}
+    <div id="digit" :digit="digit" :digitId="digitId" :channel="channel">
+        {{ channel}}
     </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            digit:[],
-        }
-    },
-    created(){
-        document.addEventListener('keydown', this.digitListener1)
-        document.addEventListener('keydown', this.digitListener2)
-
-    },
-    methods:{
-        digitListener1(event){
-            console.log(event)
-            if((event.keyCode >= 48 && event.keyCode <= 57)||(event.keyCode>=96 && event.keyCode<=105)){
-                this.digit.push(event.key)
-            }
-        },
+  data () {
+    return {
+      channel: null,
+      digit: new String(),
+      digitId: 0
     }
+  },
+  created () {
+    document.addEventListener('keydown', this.digitListener1)
+    document.addEventListener('keydown', this.digitListener2)
+  },
+  methods: {
+    digitListener1 (event) {
+      console.log(event)
+      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+        this.digit += event.key
+        let long = this.digit.length
+        if (this.digit.length < 2) {
+          this.channel = this.digit
+        } else {
+          this.digitId = long
+          this.channel = this.digit[this.digitId - 2] + this.digit[this.digitId - 1]
+        }
+        console.log(this.channel)
+
+        //    this.digit+= event.key
+        //    let truc=this.digit.length
+        //    this.digitId=truc
+      }
+    }
+  }
 }
 </script>
-
 
 <style lang="less" scoped>
     div {
