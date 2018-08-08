@@ -2,6 +2,7 @@
   <div id="app">
     <Date />
     <InfoBanner />
+    <Rail/>
     <Video />
   </div>
 </template>
@@ -10,13 +11,15 @@
 import Video from './components/Video.vue'
 import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
+import Rail from './components/Rail.vue'
 
 export default {
   name: 'app',
   components: {
     Video,
     Date,
-    InfoBanner
+    InfoBanner,
+    Rail
   }
 }
 </script>
