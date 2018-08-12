@@ -7,9 +7,6 @@
       <div class="tb">
         <h3>Titre du programme en cours</h3>
         <div class="progress">
-          <progress id="progress" value="0" min="0">
-            <span id="progress-bar"></span>
-          </progress>
         </div>
       </div>
     </div>
@@ -17,6 +14,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'InfoBanner'
 }
@@ -49,8 +47,12 @@ export default {
     width: 500px;
     height: 170px;
   }
-  #progress {
+  .progress {
     width: 350px;
+    border-color: black;
+    #progress {
+      width: 350px;
+    }
   }
   img {
     width: 250;
