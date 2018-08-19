@@ -27,7 +27,6 @@ export default {
           if (this.digit.length >= 2) {
               this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
             this.timer = setTimeout(() => {
-              console.log('TRUC')
               this.channelRequest = this.channel
               this.elapsed = true
               this.digit = ''
@@ -37,7 +36,6 @@ export default {
           } else {
             this.channel=this.digit
             this.timer = setTimeout(() => {
-              console.log('MACHIN')
               this.elapsed = true
               this.channelRequest = this.channel
               this.digit = ''
@@ -45,43 +43,8 @@ export default {
               return this.channelRequest
             }, 2000)
           }
-        console.log('Request: ' + this.channelRequest)
-        console.log('DIGIT: ' + this.digit)
-        console.log('Channel: '+this.channel)
-        console.log('timer: '+this.timer)
-
       }
     },
-    coucou () {
-      document.addEventListener('keydown', (event) => {
-        if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
-          if (!this.elapsed) { clearTimeout(this.timer) }
-          this.digit +=event.key
-          this.elapsed = false
-          if (this.digit.length >= 2) {
-            this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
-            this.timer = setTimeout(() => {
-              console.log('TRUC')
-              this.elapsed = true
-              this.channelRequest = this.channel
-              this.digit = ''
-             // this.channel = ''
-              return this.channelRequest, this.channel
-            }, 2000)
-          } else {
-            this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
-            this.timer = setTimeout(() => {
-              console.log('MACHIN')
-              this.elapsed = true
-              this.channelRequest = this.channel
-              this.digit = ''
-              //this.channel = ''
-              return this.channelRequest
-            }, 2000)
-          }
-        }
-      })
-    }
   }
     
 }
