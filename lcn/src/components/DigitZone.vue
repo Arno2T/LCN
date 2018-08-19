@@ -1,32 +1,91 @@
 <template>
-    <div id="digit" :digit="digit">
-        {{ digit[0] }} {{digit[1]}}
+    <div id="digit" :digit="digit" :channel="channel">
+        {{ channel }}
     </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            digit:[],
-        }
-    },
-    created(){
-        document.addEventListener('keydown', this.digitListener1)
-        document.addEventListener('keydown', this.digitListener2)
-
-    },
-    methods:{
-        digitListener1(event){
-            console.log(event)
-            if((event.keyCode >= 48 && event.keyCode <= 57)||(event.keyCode>=96 && event.keyCode<=105)){
-                this.digit.push(event.key)
-            }
-        },
+  data () {
+    return {
+      digit: '',
+      channel: '',
+      elapsed: null,
+      timer: null,
+      channelRequest: ''
     }
+  },
+  created () {
+    document.addEventListener('keydown', this.showChannel)
+  },
+  methods: {
+    showChannel (event) {
+      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+          if (!this.elapsed) { clearTimeout(this.timer) }
+          this.digit +=event.key
+          this.elapsed = false
+          if (this.digit.length >= 2) {
+              this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
+            this.timer = setTimeout(() => {
+              console.log('TRUC')
+              this.channelRequest = this.channel
+              this.elapsed = true
+              this.digit = ''
+              this.channel = ''
+              return this.channelRequest
+            }, 2000)
+          } else {
+            this.channel=this.digit
+            this.timer = setTimeout(() => {
+              console.log('MACHIN')
+              this.elapsed = true
+              this.channelRequest = this.channel
+              this.digit = ''
+              this.channel = ''
+              return this.channelRequest
+            }, 2000)
+          }
+        console.log('Request: ' + this.channelRequest)
+        console.log('DIGIT: ' + this.digit)
+        console.log('Channel: '+this.channel)
+        console.log('timer: '+this.timer)
+
+      }
+    },
+    coucou () {
+      document.addEventListener('keydown', (event) => {
+        if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+          if (!this.elapsed) { clearTimeout(this.timer) }
+          this.digit +=event.key
+          this.elapsed = false
+          if (this.digit.length >= 2) {
+            this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
+            this.timer = setTimeout(() => {
+              console.log('TRUC')
+              this.elapsed = true
+              this.channelRequest = this.channel
+              this.digit = ''
+             // this.channel = ''
+              return this.channelRequest, this.channel
+            }, 2000)
+          } else {
+            this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
+            this.timer = setTimeout(() => {
+              console.log('MACHIN')
+              this.elapsed = true
+              this.channelRequest = this.channel
+              this.digit = ''
+              //this.channel = ''
+              return this.channelRequest
+            }, 2000)
+          }
+        }
+      })
+    }
+  }
+    
 }
 </script>
-
 
 <style lang="less" scoped>
     div {

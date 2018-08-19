@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Date />
     <InfoBanner />
+    <Date />
     <Video />
     <digit-zone />
   </div>
@@ -19,7 +19,7 @@ export default {
     Video,
     Date,
     InfoBanner,
-    'digit-zone': DigitZone,
+    'digit-zone': DigitZone
   }
 }
 </script>
