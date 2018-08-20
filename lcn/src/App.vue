@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Date />
     <InfoBanner />
+    <Date />
     <Video />
     <digit-zone />
   </div>
