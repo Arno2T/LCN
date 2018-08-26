@@ -1,0 +1,12 @@
+[
+    {"id": 1, "chaine": "TF1", "src": "./assets/tf1.png", "videoId": "7YYkdrkA0uc", "programme": "France-Croatie", "duree": 204 },
+    {"id": 2, "chaine": "France 2", "src": "./assets/france2.png", "videoId": "OtmCGGYQWoA", "programme": "Le plus grand cabaret du monde", "duree": 5450 },
+    {"id": 3, "chaine": "France 3", "src": "./assets/france3.png", "videoId": "hDhxEp-Bip8", "programme": "Lapin Crétin Invasion", "duree": 410 },
+    {"id": 4, "chaine": "Canal +", "src": "./assets/canal.png", "videoId": "QEDSKdwxX0s", "programme": "Canal Football Club", "duree": 2449 },
+    {"id": 5, "chaine": "National Geographic Channel", "src": "./assets/ngc.png", "videoId": "JZf9TUDYmME", "programme": "The Rare and Exotic Animals", "duree": 3125 },
+    {"id": 6, "chaine": "M6", "src": "./assets/M6.jpg", "videoId": "JzMixCTokOo", "programme": "Un diner presque parfait", "duree": 3150 },
+    {"id": 7, "chaine": "UFC TV", "src": "./assets/ufc.jpg", "videoId": "YT8bBnpbdOg", "programme": "Matt Serra vs Georges St Pierre", "duree": 894 },
+    {"id": 8, "chaine": "Cartoon Network", "src": "./assets/cn.jpg", "videoId": "uIHl0TVvmaI", "programme": "Le monde incroyable de Gumball", "duree": 708 },
+    {"id": 9, "chaine": "Bein Sport", "src": "./assets/bein.png", "videoId": "jpkPhPXJYQk", "programme": "Australian Open 2017: Federer vs Nadal", "duree": 10696 },
+    {"id": 10, "chaine": "C8", "src": "./assets/c8.png", "videoId": "7CHkhcTsVTA", "programme": "Touche pas à mon poste", "duree": 1094 }
+]

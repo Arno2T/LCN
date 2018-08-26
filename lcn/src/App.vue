@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <Date />
-    <InfoBanner />
+    <Date/>
+    <InfoBanner/>
     <Rail/>
-    <Video />
+    <Video/>
   </div>
 </template>
 
 <script>
+import {channelState} from './states/channel-state'
 import Video from './components/Video.vue'
 import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
@@ -20,7 +21,12 @@ export default {
     Date,
     InfoBanner,
     Rail
-  }
+  },
+  data () {
+      return {
+        channelState,
+      }
+    },
 }
 </script>
 
@@ -29,5 +35,9 @@ export default {
   background-color: black;
   width: 99vw;
   height: 98vh;
+  .swipe{
+    overflow: hidden;
+    flex-grow: 1;
+  }
 }
 </style>
