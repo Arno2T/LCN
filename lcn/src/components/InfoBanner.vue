@@ -7,6 +7,7 @@
       <div class="tb">
         <h3>Titre du programme en cours</h3>
         <div class="progress">
+          <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>
       </div>
     </div>
@@ -14,9 +15,33 @@
 </template>
 
 <script>
+import { EventBus } from "../main"
+import { videoStates } from '../states/videoState'
 
 export default {
-  name: 'InfoBanner'
+  name: 'InfoBanner',
+  data () {
+    return {
+      videoStates,
+      dataVideo
+    }
+  },
+  methods: {
+    upTime () {
+      const progress = document.querySelector('#progress-bar')
+      progress.value = this.dataVideo
+    },
+
+    refreshTime () {
+      setInterval(this.upTime, 1000)
+    }
+  },
+  mounted(){
+    EventBus.$on('dataChange', (data) => {
+      this.dataVideo = data
+    console.log(data)
+    })
+  }
 }
 </script>
 
@@ -50,7 +75,7 @@ export default {
   .progress {
     width: 350px;
     border-color: black;
-    #progress {
+    #progress-bar {
       width: 350px;
     }
   }

@@ -1,25 +1,26 @@
 <template>
   <div class="player">
-    <video id="media-video" src="http://vjs.zencdn.net/v/oceans.mp4" controls loop muted></video>
-    <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
+    <video id="media-video" src="http://vjs.zencdn.net/v/oceans.mp4" controls loop muted>{{ refreshTime() }}</video>
   </div>
 </template>
 
 <script>
+import { videoStates } from '../states/videoState'
 
 export default {
   name: 'Video',
+  data () {
+    return {
+   
+    }
+  },
   methods: {
-    upTime () {
-    const video = this.$el.querySelector('#media-video')
-    const progress = this.$el.querySelector('#progress-bar')
-    //console.log(video)
-    //console.log(progress)
-    progress.value = video.currentTime / video.duration
+    SelectVideo () {
+      const video = document.querySelector('#media-video')
+      videoStates.curTime = video.currentTime / video.duration
     },
-
     refreshTime () {
-      setInterval(this.upTime, 1000)
+      setInterval(this.SelectVideo, 1000)
     }
   }
 }
