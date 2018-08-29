@@ -5,14 +5,15 @@
 </template>
 
 <script>
+import { channelStates } from '../states/channelStates.js'
 export default {
   data () {
     return {
       digit: '',
       channel: '',
-      elapsed: null,
+      elapsed: null, //boolean
       timer: null,
-      channelRequest: ''
+      channelStates
     }
   },
   created () {
@@ -20,44 +21,47 @@ export default {
   },
   methods: {
     showChannel (event) {
-      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
-          if (!this.elapsed) { clearTimeout(this.timer) }
-          this.digit +=event.key
-          this.elapsed = false
-          if (this.digit.length >= 2) {
-              this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
-            this.timer = setTimeout(() => {
-              this.channelRequest = this.channel
-              this.elapsed = true
-              this.digit = ''
-              this.channel = ''
-              return this.channelRequest
-            }, 2000)
-          } else {
-            this.channel=this.digit
-            this.timer = setTimeout(() => {
-              this.elapsed = true
-              this.channelRequest = this.channel
-              this.digit = ''
-              this.channel = ''
-              return this.channelRequest
-            }, 2000)
-          }
+      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { // numpad & keybord buttons
+        if (!this.elapsed) { clearTimeout(this.timer) }
+        this.digit += event.key
+        this.elapsed = false
+        if (this.digit.length >= 2) {
+          this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
+          this.timer = setTimeout(() => {
+            this.channelStates.channelRequest = this.channel
+            console.log(this.channelStates.channelRequest)
+            this.elapsed = true
+            this.digit = ''
+            this.channel = ''
+            return this.channelStates.channelRequest
+          }, 2000)
+        } else {
+          this.channel = this.digit
+          this.timer = setTimeout(() => {
+            this.elapsed = true
+            this.channelStates.channelRequest = this.channel
+            this.digit = ''
+            this.channel = ''
+            console.log(this.channelStates.channelRequest)
+            return this.channelStates.channelRequest
+          }, 2000)
+        }
       }
-    },
+    }
   }
+
 }
 </script>
 
 <style lang="less" scoped>
     div {
+        font-family: Arial, Helvetica, sans-serif;
         position: absolute;
         top:500px;
         left: 300px;
         color: white;
         height: 200px;
         width: 200px;
-        border: 3px solid white;
     }
 
     #digit{
