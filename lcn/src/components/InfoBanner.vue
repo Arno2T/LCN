@@ -1,12 +1,26 @@
 <template>
-  <div class="info">
+  <div class="info" :chaine="this.channel()">
     Info Banner
+    {{this.chaine}}
+    
   </div>
 </template>
 
 <script>
+import {channelStates} from '../states/channelStates.js'
 export default {
-  name: 'InfoBanner'
+  name: 'InfoBanner',
+  data(){
+    return{
+      channelStates,
+      chaine:null,
+    }   
+  },
+  methods:{
+    channel(){
+      this.chaine=this.channelStates.channelRequest
+    }
+  }
 }
 </script>
 
