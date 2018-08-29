@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Date/>
-    <InfoBanner/>
-    <Rail/>
+    <Date v-if="railDisplay.value"/>
+    <InfoBanner v-if="railDisplay.value"/>
+    <Rail v-if="railDisplay.value"/>
     <Video/>
   </div>
 </template>
@@ -25,8 +25,28 @@ export default {
   data () {
       return {
         channelState,
+        railDisplay: {
+          value: false
+        }
       }
     },
+    created() {
+      document.addEventListener('keydown', this.menuDisplay)
+    },
+    beforeDestroy(){
+      document.removeEventListener('keydown', this.menuDisplay)
+    },
+    methods: {
+      menuDisplay(event){
+        if (event.keyCode == "77"){
+          if (this.railDisplay.value === false){
+            this.railDisplay.value = true
+          } else {
+            this.railDisplay.value = false
+          }
+        }
+      }
+    }
 }
 </script>
 

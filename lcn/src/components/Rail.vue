@@ -1,15 +1,17 @@
 <template>
     <div id="content">
-        <RailChannel/>
+        <RailChannel :ref="$registerInGrid(1, 1)"/>
     </div>
 </template>
 
 <script>
 import { channelState } from "../states/channel-state";
 import RailChannel from "./RailChannel.vue"
+import { keyboardNavigation } from '../mixins/keyboard'
 
 export default {
   name: "Rail",
+  mixins: [keyboardNavigation],
   components: {
     RailChannel
   },
@@ -17,6 +19,9 @@ export default {
     return {
       channelState
     }
+  },
+  mounted () {
+    this.$movePositionInGrid(1, 1)
   }
 }
 </script>
