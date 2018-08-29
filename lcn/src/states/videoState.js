@@ -3,7 +3,8 @@ import { EventBus } from '../main'
 
 export let videoStates = new Vue({
   data: {
-    curTime: 0
+    curTime: 0,
+    dataVideo: null
   },
   watch: {
     curTime: function () {

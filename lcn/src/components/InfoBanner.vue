@@ -22,14 +22,13 @@ export default {
   name: 'InfoBanner',
   data () {
     return {
-      videoStates,
-      dataVideo
+      videoStates
     }
   },
   methods: {
     upTime () {
       const progress = document.querySelector('#progress-bar')
-      progress.value = this.dataVideo
+      progress.value = this.videoStates.dataVideo
     },
 
     refreshTime () {
@@ -38,7 +37,7 @@ export default {
   },
   mounted(){
     EventBus.$on('dataChange', (data) => {
-      this.dataVideo = data
+      this.videoStates.dataVideo = data
     console.log(data)
     })
   }
