@@ -29,6 +29,7 @@ export default {
 
 <style lang="less" scoped>
 .Date {
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   position: absolute;
   font-family: Verdana, sans-serif;
   color: white;
