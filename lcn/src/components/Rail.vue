@@ -30,6 +30,7 @@ export default {
 #content {
   position: absolute;
   overflow: hidden;
+  top:0;
   flex-grow: 1;
   height: 100vh;
   width: 20vh;

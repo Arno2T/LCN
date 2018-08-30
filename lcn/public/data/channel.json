@@ -1,12 +1,12 @@
 [
-    {"id": 1, "chaine": "TF1", "src": "./assets/tf1.png", "videoId": "7YYkdrkA0uc", "programme": "France-Croatie", "duree": 204 },
-    {"id": 2, "chaine": "France 2", "src": "./assets/france2.png", "videoId": "OtmCGGYQWoA", "programme": "Le plus grand cabaret du monde", "duree": 5450 },
-    {"id": 3, "chaine": "France 3", "src": "./assets/france3.png", "videoId": "hDhxEp-Bip8", "programme": "Lapin Crétin Invasion", "duree": 410 },
-    {"id": 4, "chaine": "Canal +", "src": "./assets/canal.png", "videoId": "QEDSKdwxX0s", "programme": "Canal Football Club", "duree": 2449 },
-    {"id": 5, "chaine": "National Geographic Channel", "src": "./assets/ngc.png", "videoId": "JZf9TUDYmME", "programme": "The Rare and Exotic Animals", "duree": 3125 },
-    {"id": 6, "chaine": "M6", "src": "./assets/M6.jpg", "videoId": "JzMixCTokOo", "programme": "Un diner presque parfait", "duree": 3150 },
-    {"id": 7, "chaine": "UFC TV", "src": "./assets/ufc.jpg", "videoId": "YT8bBnpbdOg", "programme": "Matt Serra vs Georges St Pierre", "duree": 894 },
-    {"id": 8, "chaine": "Cartoon Network", "src": "./assets/cn.jpg", "videoId": "uIHl0TVvmaI", "programme": "Le monde incroyable de Gumball", "duree": 708 },
-    {"id": 9, "chaine": "Bein Sport", "src": "./assets/bein.png", "videoId": "jpkPhPXJYQk", "programme": "Australian Open 2017: Federer vs Nadal", "duree": 10696 },
-    {"id": 10, "chaine": "C8", "src": "./assets/c8.png", "videoId": "7CHkhcTsVTA", "programme": "Touche pas à mon poste", "duree": 1094 }
+    {"id": 1, "chaine": "TF1", "src": "./assets/logoChaines/tf1.png", "videoId": "http://mazwai.com/system/posts/videos/000/000/192/original/le-temps-dun-paris.mp4?1445792574", "miniature": "./assets/miniatures/paris.jpg", "programme": "Ici c'est Paris", "duree": 180 },
+    {"id": 2, "chaine": "France 2", "src": "./assets/logoChaines/france2.png", "videoId": "http://mazwai.com/system/posts/videos/000/000/225/original/andrew-arthur-breese_boneyard-raw-broll.mp4?1476538479", "miniature": "./assets/miniatures/avion.jpg", "programme": "Les cimetières d'avions", "duree": 354 },
+    {"id": 3, "chaine": "France 3", "src": "./assets/logoChaines/france3.png", "videoId": "http://mazwai.com/system/posts/videos/000/000/204/original/finlandia.mp4?1446982919", "miniature": "./assets/miniatures/ours.jpg", "programme": "La vie des ours en Finlande", "duree": 204 },
+    {"id": 4, "chaine": "Canal +", "src": "./assets/logoChaines/canal.png", "videoId": "http://mazwai.com/system/posts/videos/000/000/182/original/gone_Fishin.mp4?1442362157", "miniature": "./assets/miniatures/peche.jpg", "programme": "Canal Fishing Club", "duree": 60 },
+    {"id": 5, "chaine": "National Geographic Channel", "src": "./assets/logoChaines/ngc.png", "videoId": "http://vjs.zencdn.net/v/oceans.mp4", "miniature": "./assets/miniatures/baleine.jpg", "programme": "Oceans", "duree": 47 },
+    {"id": 6, "chaine": "M6", "src": "./assets/logoChaines/M6.jpg", "videoId": "http://mazwai.com/system/posts/videos/000/000/147/original/matts-falling_snow.mp4?1419188548", "miniature": "./assets/miniatures/neige.jpg", "programme": "Un hiver presque parfait", "duree": 88 },
+    {"id": 7, "chaine": "UFC TV", "src": "./assets/logoChaines/ufc.jpg", "videoId": "http://is3.4chan.org/sp/1535546635101.webm", "miniature": "./assets/miniatures/boxe.jpg", "programme": "Antonio Merguez (MEX) vs Maximo Chipolatas (ESP)", "duree": 8 },
+    {"id": 8, "chaine": "Cartoon Network", "src": "./assets/logoChaines/cn.jpg", "videoId": "http://civam.fr/wp-content/uploads/sites/4/2014/10/big_buck_bunny.mp4", "miniature": "./assets/miniatures/bigbunny.jpg", "programme": "Big Buck Bunny", "duree": 60 },
+    {"id": 9, "chaine": "Bein Sport", "src": "./assets/logoChaines/bein.png", "videoId": "http://mazwai.com/system/posts/videos/000/000/013/original/FDR_and_7th_Street_Skateboarding-HD.mp4?1402518604", "miniature": "./assets/miniatures/skate.jpg", "programme": "Street Skateboarding", "duree": 222 },
+    {"id": 10, "chaine": "C8", "src": "./assets/logoChaines/c8.png", "videoId": "http://mazwai.com/system/posts/videos/000/000/137/original/left_coast_digital--tentacles_and_more_at_the_monterey_bay_aquarium.mp4?1416270294", "miniature": "./assets/miniatures/poulpe.jpg", "programme": "Touche pas à mon poulpe", "duree": 258 }
 ]

@@ -22,8 +22,9 @@ export default {
     Video,
     Date,
     InfoBanner,
-    Rail
-    'digit-zone': DigitZone,
+    Rail,
+    'digit-zone': DigitZone
+  },
   data () {
       return {
         channelState,
