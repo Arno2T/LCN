@@ -1,17 +1,18 @@
 <template>
   <div class="player">
-    <video id="media-video" src="http://vjs.zencdn.net/v/oceans.mp4" controls loop muted>{{ refreshTime() }}</video>
+    <video id="media-video" :src="this.channelStates.channelResponse.videoId" autoplay controls loop>{{ refreshTime() }} </video>
   </div>
 </template>
 
 <script>
 import { videoStates } from '../states/videoState'
+import { channelStates } from '../states/channelStates.js'
 
 export default {
   name: 'Video',
   data () {
     return {
-   
+      channelStates,
     }
   },
   methods: {
@@ -21,8 +22,8 @@ export default {
     },
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
-    }
-  }
+    },
+  },
 }
 </script>
 

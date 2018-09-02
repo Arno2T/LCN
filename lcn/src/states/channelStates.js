@@ -1,4 +1,5 @@
 export const channelStates = {
 
-  channelRequest: null
+  channelRequest: null,
+  channelResponse: null
 }
