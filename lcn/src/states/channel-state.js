@@ -1,4 +1,4 @@
 export const channelState = {
-    channel: null,
-    selectedChannel: null
-  }
+  channel: null,
+  selectedChannel: null
+}

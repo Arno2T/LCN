@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Date v-if="railDisplay.value"/>
-    <InfoBanner v-if="railDisplay.value"/>
-    <Video/>
+    <InfoBanner v-if="railDisplay.value" />
+    <Video :movie="getVideoUrl()" />
     <Rail v-if="railDisplay.value"/>
     <digit-zone />
   </div>
@@ -28,9 +28,18 @@ export default {
   data () {
       return {
         channelState,
+        movies: null,
         railDisplay: {
           value: false
         }
+      }
+    },
+    async created() {
+      try {
+        let reponse = await fetch('channel.json')
+        this.movies = await response.json();
+      } catch (error) {
+        console.log(error)
       }
     },
     created() {
@@ -48,6 +57,9 @@ export default {
             this.railDisplay.value = false
           }
         }
+      },
+      getVideoUrl() {
+        console.log("hello")
       }
     }
 }

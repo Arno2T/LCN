@@ -2,10 +2,10 @@
   <div class="info">
     <div class="tib">
       <div class="i">
-        <img src="../images/baleine.jpg"/>
+        <img :src="this.channelStates.channelResponse.miniature"/>
       </div>
       <div class="tb">
-        <h3>Titre du programme en cours</h3>
+        <h3>{{ this.channelStates.channelResponse.programme }}</h3>
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>
@@ -17,13 +17,19 @@
 <script>
 import { EventBus } from "../main"
 import { videoStates } from '../states/videoState'
+import { channelStates } from '../states/channelStates'
 
 export default {
   name: 'InfoBanner',
   data () {
     return {
-      videoStates
+      videoStates,
+      channelStates
     }
+  },
+  props: {
+    img: String,
+    title: String
   },
   methods: {
     upTime () {
@@ -38,7 +44,6 @@ export default {
   mounted(){
     EventBus.$on('dataChange', (data) => {
       this.videoStates.dataVideo = data
-    console.log(data)
     })
   }
 }
