@@ -17,33 +17,52 @@ export default {
     }
   },
   created () {
-    document.addEventListener('keydown', this.showChannel)
+    document.addEventListener('keydown', this.showChannel) //listen digit controls
   },
   methods: {
+    // get channel request and transmit response
     async tune(){
       const response =  await fetch('./data/channel.json')
       const results = await response.json()
 
-      results.find((element)=>{
-          if ((element.id == this.channelStates.channelRequest) && (this.channelStates.channelRequest)) { 
-            console.log(element.id)
-             this.channelStates.channelResponse = {
-              id: element.id,
-              chaine: element.chaine,
-              src: element.src,
-              videoId: element.videoId,
-              miniature: element.miniature,
-              programme: element.programme,
-              duree: element.duree
+            results.find((element)=>{
+              if(element.id == this.channelStates.channelRequest){
+                this.channelStates.channelResponse = {
+                id: element.id,
+                chaine: element.chaine,
+                src: element.src,
+                videoId: element.videoId,
+                miniature: element.miniature,
+                programme: element.programme,
+                duree: element.duree
             }
-           
             return this.channelStates.channelResponse
-          }
-          else{
-            return console.log("Chaine non définie")
-          }
-      })
-    },
+              }
+              else{
+                return console.log("chaine non définie")
+              }
+            })
+          },
+      // results.find((element)=>{
+      //     if ((element.id == this.channelStates.channelRequest) && (this.channelStates.channelRequest)) { 
+      //       console.log(element.id)
+      //        this.channelStates.channelResponse = {
+      //         id: element.id,
+      //         chaine: element.chaine,
+      //         src: element.src,
+      //         videoId: element.videoId,
+      //         miniature: element.miniature,
+      //         programme: element.programme,
+      //         duree: element.duree
+      //       }
+           
+      //       return this.channelStates.channelResponse
+      //     }
+      //     else{
+      //       return console.log("Chaine non définie")
+      //     }
+      // })
+
     showChannel (event) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { // numpad & keybord buttons
         if (!this.elapsed) { clearTimeout(this.timer) }
@@ -53,7 +72,6 @@ export default {
           this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
           this.timer = setTimeout(() => {
             this.channelStates.channelRequest = this.channel
-            console.log(this.channelStates.channelRequest)
             this.elapsed = true
             this.digit = ''
             this.channel = ''
@@ -68,7 +86,6 @@ export default {
             this.digit = ''
             this.channel = ''
             this.tune()
-            console.log(this.channelStates.channelRequest)
             return this.channelStates.channelRequest
           }, 2000)
         }
