@@ -2,7 +2,7 @@
   <div id="app">
     <Date v-if="railDisplay.value"/>
     <InfoBanner v-if="railDisplay.value" />
-    <Video :movie="getVideoUrl()" />
+    <Video />
     <Rail v-if="railDisplay.value"/>
     <digit-zone />
   </div>
@@ -57,9 +57,6 @@ export default {
             this.railDisplay.value = false
           }
         }
-      },
-      getVideoUrl() {
-        console.log("hello")
       }
     }
 }
