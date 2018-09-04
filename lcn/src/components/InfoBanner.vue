@@ -2,7 +2,7 @@
   <div class="info">
     <div class="tib">
       <div class="i">
-        <img src="../images/baleine.jpg"/>
+        <img src="../images/avion.jpg"/>
       </div>
       <div class="tb">
         <h3>Titre du programme en cours</h3>

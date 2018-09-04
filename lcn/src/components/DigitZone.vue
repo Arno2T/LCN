@@ -24,6 +24,7 @@ export default {
     async tune(){
       const response =  await fetch('./data/channel.json')
       const results = await response.json()
+      console.log(results)
 
             results.find((element)=>{
               if(element.id == this.channelStates.channelRequest){
