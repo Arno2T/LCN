@@ -17,10 +17,14 @@ export default {
     }
   },
   methods: {
+    //On récupère récupère l'élément media-video
+    //On passe au state le temps d'avancement de la video
     SelectVideo () {
       const video = document.querySelector('#media-video')
+      videoStates.vidDuration = video.duration
       videoStates.curTime = video.currentTime / video.duration
     },
+    //Refresh chaque seconde de l'avancement de la video
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
     }
@@ -30,7 +34,7 @@ export default {
 
 <style lang="less" scoped>
 video {
-  width: 99vw;
-  height: 97vh;
+  width: 99.5vw;
+  height: 98vh;
 }
 </style>

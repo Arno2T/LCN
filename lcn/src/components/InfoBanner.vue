@@ -21,6 +21,7 @@ import { channelStates } from '../states/channelStates'
 
 export default {
   name: 'InfoBanner',
+  // Récupération de nos states
   data () {
     return {
       videoStates,
@@ -32,15 +33,23 @@ export default {
     title: String
   },
   methods: {
+    //On récupère l'élément progress-bar
+    //On lui passe les data de la video via le state
     upTime () {
       const progress = document.querySelector('#progress-bar')
       progress.value = this.videoStates.dataVideo
     },
-
+    //Affichage de l'heure de début du programme
+    progTimeStart () {
+      const dur = document.querySelector('#duray')
+      dur.value = this.videoStates.dataDuration
+    },
+    //Refresh chaque seconde la progress-bar
     refreshTime () {
       setInterval(this.upTime, 1000)
     }
   },
+  //Récupération du changement de la data
   mounted(){
     EventBus.$on('dataChange', (data) => {
       this.videoStates.dataVideo = data
@@ -52,23 +61,22 @@ export default {
 <style lang="less" scoped>
 .info {
   position: absolute;
-  top: 680px;
-  height: 20vh;
-  width: 99vw;
+  height: 120px;
+  width: 100vw;
+  bottom: 0;
   font-family: Verdana, sans-serif;
   background:linear-gradient(260deg, rgba(255,0,0,0.5) 0%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.5) 26%, rgba(128,128,128,0.5) 100%);
   .tib {
     display: flex;
     flex-direction: row;
-    width: 800px;
-    height: 170px;
+    height: 100%;
     margin-left: 20%;
   }
   .i {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 170px;
+    height: 100%;
     width: 300px;
   }
   .tb {
@@ -84,8 +92,7 @@ export default {
     }
   }
   img {
-    width: 250;
-    height: 150px;
+    height: 100px;
   }
 }
 </style>

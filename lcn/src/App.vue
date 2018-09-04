@@ -65,7 +65,7 @@ export default {
 <style lang="less">
 #app {
   background-color: black;
-  width: 99vw;
+  width: 99.5vw;
   height: 98vh;
   .swipe{
     overflow: hidden;
