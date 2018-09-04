@@ -21,7 +21,12 @@ export default {
     },
     methods: {
         onFocus () {
-            console.log('channel focused', this.channel);
+            this.channelState.chanFocus = this.channel.id
+            // calcule de la position du logo sru le rail
+            const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
+            // calcule de la distance entre le bas du logo et le bas du rail
+            const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
+            this.$emit('translate', distance)
             
         }
     }
@@ -32,10 +37,9 @@ export default {
     img{
         height: 100%;
         width: 100%;
-
     }
     .focus {
-        border: 1px solid red;
+        border: 3px solid red;
     }
 </style>
 

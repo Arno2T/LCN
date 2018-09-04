@@ -5,7 +5,9 @@
             :key="index"
             :channel="channel"
             :ref="$registerInGrid(1, index + 1)"
+            @translate="move"
         />
+        <div v-on:$keyListener="focus($event)"></div>
     </div>
 </template>
 
@@ -33,6 +35,15 @@ export default {
         } catch (error){
             console.error(error);
         }
+    },
+    updated () {
+        this.$movePositionInGrid(1, 1)
+    },
+    methods:{
+        move(y){
+            const trans = document.getElementById('rail')
+            trans.style.transform = "translate(0," + y + "px)"
+        }
     }
 }
 </script>
@@ -43,12 +54,12 @@ export default {
         height: 200vh;
         width: 20vh;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        flex-direction: column-reverse;
+        justify-content: space-around;
     }
     .logo {
         padding: 10px;
-        padding-top: 50px;
+        padding-top: 40px;
         height: 12vh;
         width: 17vh;
     }

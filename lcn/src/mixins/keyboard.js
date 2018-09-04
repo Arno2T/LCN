@@ -30,17 +30,15 @@ export const keyboardNavigation = {
     },
     methods: {
         $keyListener({ keyCode }) {
-            console.log(keyCode);
-            
             switch (keyCode) {
                 case 38:
-                    return this.$movePositionInGrid(0, -1)
-                case 39:
-                    return this.$movePositionInGrid(1, 0)
-                case 40:
                     return this.$movePositionInGrid(0, 1)
-                case 37:
-                    return this.$movePositionInGrid(-1, 0)
+                // case 39:
+                //     return this.$movePositionInGrid(1, 0)
+                case 40:
+                    return this.$movePositionInGrid(0, -1)
+                // case 37:
+                //     return this.$movePositionInGrid(-1, 0)
             }
         },
         $movePositionInGrid(x, y) {
