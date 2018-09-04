@@ -38,8 +38,5 @@ export default {
         height: 100%;
         width: 100%;
     }
-    .focus {
-        border: 3px solid red;
-    }
 </style>
 
