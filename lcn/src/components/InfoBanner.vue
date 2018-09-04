@@ -46,7 +46,9 @@ export default {
     },
     //Refresh chaque seconde la progress-bar
     refreshTime () {
-      setInterval(this.upTime, 1000)
+     
+        setInterval(this.upTime, 1000)
+      
     }
   },
   //Récupération du changement de la data

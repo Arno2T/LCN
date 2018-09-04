@@ -27,8 +27,9 @@ export default {
     //Refresh chaque seconde de l'avancement de la video
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
-    }
-  }
+    },
+
+  },
 }
 </script>
 
