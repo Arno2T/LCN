@@ -4,7 +4,7 @@
     <InfoBanner v-if="railDisplay.value"/>
     <Video/>
     <Rail v-if="railDisplay.value"/>
-    <digit-zone />
+    <digit-zone/>
   </div>
 </template>
 
@@ -54,13 +54,16 @@ export default {
 </script>
 
 <style lang="less">
+@import '~normalize.css';
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 #app {
   background-color: black;
-  width: 99vw;
-  height: 98vh;
-  .swipe{
-    overflow: hidden;
-    flex-grow: 1;
-  }
+  width: 100%;
+  height: 100%;
 }
 </style>

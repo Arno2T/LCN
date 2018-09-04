@@ -1,6 +1,6 @@
 <template>
     <div id="content">
-        <RailChannel :ref="$registerInGrid(1, 1)"/>
+      <RailChannel :ref="$registerInGrid(1, 1)"/>
     </div>
 </template>
 
@@ -19,9 +19,6 @@ export default {
     return {
       channelState
     }
-  },
-  mounted () {
-    this.$movePositionInGrid(1, 1)
   }
 }
 </script>
