@@ -24,45 +24,33 @@ export default {
     async tune(){
       const response =  await fetch('./data/channel.json')
       const results = await response.json()
-      console.log(results)
-
-            results.find((element)=>{
-              if(element.id == this.channelStates.channelRequest){
-                this.channelStates.channelResponse = {
-                id: element.id,
-                chaine: element.chaine,
-                src: element.src,
-                videoId: element.videoId,
-                miniature: element.miniature,
-                programme: element.programme,
-                duree: element.duree
+      const channelSearch = results.find((element) => {
+        return element.id == this.channelStates.channelRequest
+      })
+      if (channelSearch){
+         this.channelStates.channelResponse = {
+                id: channelSearch.id,
+                chaine: channelSearch.chaine,
+                src: channelSearch.src,
+                videoId: channelSearch.videoId,
+                miniature: channelSearch.miniature,
+                programme: channelSearch.programme,
+                duree: channelSearch.duree
             }
             return this.channelStates.channelResponse
+      }
+      else{
+                return this.channelStates.channelResponse ={
+                  id: null,
+                  chaine: null,
+                  src:null,
+                  videoId: null,
+                  miniature: null,
+                  programme: null,
+                  duree: null
+                }
               }
-              else{
-                return console.log("chaine non définie")
-              }
-            })
-          },
-      // results.find((element)=>{
-      //     if ((element.id == this.channelStates.channelRequest) && (this.channelStates.channelRequest)) { 
-      //       console.log(element.id)
-      //        this.channelStates.channelResponse = {
-      //         id: element.id,
-      //         chaine: element.chaine,
-      //         src: element.src,
-      //         videoId: element.videoId,
-      //         miniature: element.miniature,
-      //         programme: element.programme,
-      //         duree: element.duree
-      //       }
-           
-      //       return this.channelStates.channelResponse
-      //     }
-      //     else{
-      //       return console.log("Chaine non définie")
-      //     }
-      // })
+    },
 
     showChannel (event) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { // numpad & keybord buttons

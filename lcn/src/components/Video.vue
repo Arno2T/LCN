@@ -1,6 +1,7 @@
 <template>
   <div class="player">
-    <video id="media-video" :src="this.channelStates.channelResponse.videoId" autoplay controls loop>{{ refreshTime() }} </video>
+    <video id="media-video" :src="this.channelStates.channelResponse.videoId"  autoplay controls loop>{{ refreshTime() }} </video>
+    {{this.message}}
   </div>
 </template>
 
@@ -23,6 +24,7 @@ export default {
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
     },
+
   },
 }
 </script>
