@@ -8,7 +8,8 @@ export let videoStates = new Vue({
     dataVideo: null,
     vidStart: null
   },
-  // Watcher sur notre balise video pour emit le currentTime et le récup dans l'infoBanner
+  // Watcher sur notre balise video pour emit :
+  // Le currentTime, la videoDuration et l'heure de début du prog. pour les récupérer dans l'infoBanner
   watch: {
     curTime: function () {
       if (this.curTime) {

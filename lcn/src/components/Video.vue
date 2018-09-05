@@ -17,8 +17,8 @@ export default {
     }
   },
   methods: {
-    // On récupère récupère l'élément media-video
-    // On passe au state le temps d'avancement de la video
+    //On récupère l'élément media-video
+    //On passe au states le temps d'avancement de la video
     SelectVideo () {
       const video = document.querySelector('#media-video')
       videoStates.vidDuration = video.duration
