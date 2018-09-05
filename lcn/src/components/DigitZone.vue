@@ -40,15 +40,7 @@ export default {
             return this.channelStates.channelResponse
       }
       else{
-                return this.channelStates.channelResponse ={
-                  id: null,
-                  chaine: null,
-                  src:null,
-                  videoId: null,
-                  miniature: null,
-                  programme: null,
-                  duree: null
-                }
+                return this.channelStates.channelResponse = false
               }
     },
     showChannel (event) {
