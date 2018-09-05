@@ -14,6 +14,7 @@
 <script>
 import LogoChaine from './LogoChaine.vue'
 import { channelState } from "../states/channel-state";
+import { channelStates } from '../states/channelStates.js'
 import { keyboardNavigation } from '../mixins/keyboard'
 
 export default {
@@ -24,7 +25,8 @@ export default {
     },
     data() {
         return {
-            channelState
+            channelState,
+            channelStates
         }
     },
     async created (){
@@ -43,6 +45,28 @@ export default {
         move(y){
             const trans = document.getElementById('rail')
             trans.style.transform = "translate(0," + y + "px)"
+            this.tune()
+        },
+        async tune(){
+            console.log('tune')
+            const response =  await fetch('data/channel.json')
+            const results = await response.json()
+            const channelSearch = results.find((element) => {
+                return element.id == this.channelState.chanFocus
+            })
+            if (channelSearch){
+                console.log("channel search: " + channelSearch)
+                this.channelStates.channelResponse = {
+                    id: channelSearch.id,
+                    chaine: channelSearch.chaine,
+                    src: channelSearch.src,
+                    videoId: channelSearch.videoId,
+                    miniature: channelSearch.miniature,
+                    programme: channelSearch.programme,
+                    duree: channelSearch.duree
+                }
+            return this.channelStates.channelResponse
+            }
         }
     }
 }
