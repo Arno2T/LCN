@@ -63,7 +63,7 @@ export default {
 <style lang="less" scoped>
 .info {
   position: absolute;
-  height: 120px;
+  height: 140px;
   width: 100vw;
   bottom: 0;
   font-family: Verdana, sans-serif;
@@ -94,7 +94,7 @@ export default {
     }
   }
   img {
-    height: 100px;
+    height: 120px;
   }
 }
 </style>
