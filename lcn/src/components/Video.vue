@@ -27,9 +27,18 @@ export default {
     // Refresh chaque seconde de l'avancement de la video
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
+    },
+    //Va envoyer l'heure à laquelle le programme a démarré
+    timeVideoStart () {
+      const moment = require('moment')
+      videoStates.vidStart = moment().format('HH:mm');
+    },
+    //Va envoyer la durée du programme dans le states
+    videoDuration () {
+      const video = document.querySelector('#media-video')
+      videoStates.vidDuration = video.duration
     }
-
-  }
+  },
 }
 </script>
 

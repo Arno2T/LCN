@@ -8,6 +8,8 @@
         <h3>{{ this.channelStates.channelResponse.programme }}</h3>
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
+          <div class="timeStart">Start :{{ progTimeStart() }}</div>
+          <div class="timeEnd">End :{{ progTimeEnd() }}</div>
         </div>
         <div class="timer">
           <div class="timeStart">{{ progTimeStart() }}</div>
@@ -44,17 +46,22 @@ export default {
       progress.value = this.videoStates.dataVideo
       console.log(progress.value)
     },
-    // Affichage de l'heure de début du programme
+    //On récupère la div timeStart et on y injecte l'heure actuelle
     progTimeStart () {
       return this.videoStates.vidStart
     },
-    //On return l'heure de fin de notre programme à notre div timeEnd
+    //On récupère la div timeEnd
     progTimeEnd () {
       const moment = require('moment')
       const time = this.videoStates.vidDuration
       const minutes = String(Math.floor(time / 60))
+      console.log(minutes)
       const endTime = moment(this.videoStates.vidStart, 'HH:mm:ss').add(minutes, 'minutes').format('HH:mm');
       return endTime
+    },
+    //Refresh chaque seconde la progress-bar
+    refreshTime () {
+        setInterval(this.upTime, 1000)
     }
   },
   //Récupération du changement de la data de notre video
