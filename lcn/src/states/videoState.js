@@ -5,8 +5,8 @@ export let videoStates = new Vue({
   data: {
     curTime: 0,
     vidDuration: null,
-    dataDuration: null,
-    dataVideo: null
+    dataVideo: null,
+    vidStart: null
   },
   // Watcher sur notre balise video pour emit le currentTime et le récup dans l'infoBanner
   watch: {
@@ -19,9 +19,17 @@ export let videoStates = new Vue({
     },
     vidDuration: function () {
       if (this.vidDuration) {
-        EventBus.$emit('dataDur', this.vidDuration)
+        EventBus.$emit('dataChange', this.vidDuration)
+        console.log(this.vidDuration)
       } else {
         EventBus.$emit('pas de durée', this.vidDuration)
+      }
+    },
+    vidStart: function () {
+      if (this.vidStart) {
+        EventBus.$emit('dataChange', this.vidStart)
+      } else {
+        EventBus.$emit('no start', this.vidStart)
       }
     }
   }
