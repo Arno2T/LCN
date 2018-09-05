@@ -6,6 +6,9 @@
 
 <script>
 import { channelStates } from '../states/channelStates.js'
+import {channelState} from '../states/channel-state'
+import { EventBus } from '../main'
+
 export default {
   data () {
     return {
@@ -13,7 +16,8 @@ export default {
       channel: '',
       elapsed: null, //boolean
       timer: null,
-      channelStates
+      channelStates,
+      channelState
     }
   },
   created () {
@@ -37,6 +41,7 @@ export default {
                 programme: channelSearch.programme,
                 duree: channelSearch.duree
             }
+            EventBus.$emit('chanChanged', channelSearch.id)
             return this.channelStates.channelResponse
       }
       else{
@@ -78,7 +83,7 @@ export default {
           }, 2000)
         }
       }
-    }
+    },
   }
 }
 </script>

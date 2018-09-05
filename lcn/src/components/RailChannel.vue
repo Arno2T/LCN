@@ -16,6 +16,7 @@ import LogoChaine from './LogoChaine.vue'
 import { channelState } from "../states/channel-state";
 import { channelStates } from '../states/channelStates.js'
 import { keyboardNavigation } from '../mixins/keyboard'
+import { EventBus } from '../main'
 
 export default {
     name: 'RailChannel',
@@ -38,11 +39,17 @@ export default {
             console.error(error);
         }
     },
+     mounted () {
+        EventBus.$on('chanChanged', chanId => {
+            this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
+        })
+    },
     updated () {
         this.$movePositionInGrid(1, 1)
     },
     methods:{
         move(y){
+            console.log("translate: " + y)
             const trans = document.getElementById('rail')
             trans.style.transform = "translate(0," + y + "px)"
             this.tune()
