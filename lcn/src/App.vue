@@ -15,6 +15,7 @@ import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
 import DigitZone from './components/DigitZone.vue'
 import Rail from './components/Rail.vue'
+import AlertMessage from './components/AlertMessage.vue'
 
 export default {
   name: 'app',
