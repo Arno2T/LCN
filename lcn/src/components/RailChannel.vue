@@ -47,6 +47,9 @@ export default {
     updated () {
         this.$movePositionInGrid(1, 1)
     },
+    beforeDestroy(){
+        document.removeEventListener('keydown', this.validation)
+    },
     methods:{
         move(y){
             console.log("translate: " + y)
@@ -67,12 +70,32 @@ export default {
                     id: channelSearch.id,
                     chaine: channelSearch.chaine,
                     src: channelSearch.src,
+                    miniature: channelSearch.miniature,
+                    programme: channelSearch.programme,
+                    duree: channelSearch.duree
+                }
+            document.addEventListener('keydown', this.validation)
+            return this.channelStates.channelResponse
+            }
+        },
+        async validation ({keyCode}){
+            if (keyCode == 13){
+                console.log("chaine tv: " + this.channelStates.channelResponse.id)
+                const response = await fetch('data/channel.json')
+                const results = await response.json()
+                const channelSearch = results.find((element) => {
+                    return element.id == this.channelStates.channelResponse.id
+                })
+                this.channelStates.channelResponse = {
+                    id: channelSearch.id,
+                    chaine: channelSearch.chaine,
+                    src: channelSearch.src,
                     videoId: channelSearch.videoId,
                     miniature: channelSearch.miniature,
                     programme: channelSearch.programme,
                     duree: channelSearch.duree
                 }
-            return this.channelStates.channelResponse
+                return this.channelStates.channelResponse
             }
         }
     }

@@ -21,24 +21,13 @@ export default {
     },
     methods: {
         onFocus (y) {
-            if (!y){
-                console.log("on est d'accord y'a pas de y")
-                this.channelState.chanFocus = this.channel.id
-                // calcule de la position du logo sru le rail
-                const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
-                // calcule de la distance entre le bas du logo et le bas du rail
-                const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
-                this.$emit('translate', distance)
-            } else{
-                console.log("y de ses morts: " + y)
-                this.channelState.chanFocus = y
-                // calcule de la position du logo sru le rail
-                const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
-                // calcule de la distance entre le bas du logo et le bas du rail
-                const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
-                this.$emit('translate', distance)
-            }            
-        }
+            this.channelState.chanFocus = this.channel.id
+            // calcule de la position du logo sru le rail
+            const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
+            // calcule de la distance entre le bas du logo et le bas du rail
+            const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
+            this.$emit('translate', distance)
+        }            
     }
 }
 </script>
