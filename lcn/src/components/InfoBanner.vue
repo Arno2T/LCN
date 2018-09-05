@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { EventBus } from "../main"
+import { EventBus } from '../main'
 import { videoStates } from '../states/videoState'
 import { channelStates } from '../states/channelStates'
 
@@ -33,26 +33,24 @@ export default {
     title: String
   },
   methods: {
-    //On récupère l'élément progress-bar
-    //On lui passe les data de la video via le state
+    // On récupère l'élément progress-bar
+    // On lui passe les data de la video via le state
     upTime () {
       const progress = document.querySelector('#progress-bar')
       progress.value = this.videoStates.dataVideo
     },
-    //Affichage de l'heure de début du programme
+    // Affichage de l'heure de début du programme
     progTimeStart () {
       const dur = document.querySelector('#duray')
       dur.value = this.videoStates.dataDuration
     },
-    //Refresh chaque seconde la progress-bar
+    // Refresh chaque seconde la progress-bar
     refreshTime () {
-     
-        setInterval(this.upTime, 1000)
-      
+      setInterval(this.upTime, 1000)
     }
   },
-  //Récupération du changement de la data
-  mounted(){
+  // Récupération du changement de la data
+  mounted () {
     EventBus.$on('dataChange', (data) => {
       this.videoStates.dataVideo = data
     })

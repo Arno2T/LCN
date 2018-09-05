@@ -13,38 +13,38 @@
 
 <script>
 import LogoChaine from './LogoChaine.vue'
-import { channelState } from "../states/channel-state";
+import { channelState } from '../states/channel-state'
 import { keyboardNavigation } from '../mixins/keyboard'
 
 export default {
-    name: 'RailChannel',
-    mixins: [keyboardNavigation],
-    components: {
-        LogoChaine
-    },
-    data() {
-        return {
-            channelState
-        }
-    },
-    async created (){
-        try{
-            let response = await fetch("data/channel.json")
-            const chan = await response.json()
-            this.channelState.channel = chan
-        } catch (error){
-            console.error(error);
-        }
-    },
-    updated () {
-        this.$movePositionInGrid(1, 1)
-    },
-    methods:{
-        move(y){
-            const trans = document.getElementById('rail')
-            trans.style.transform = "translate(0," + y + "px)"
-        }
+  name: 'RailChannel',
+  mixins: [keyboardNavigation],
+  components: {
+    LogoChaine
+  },
+  data () {
+    return {
+      channelState
     }
+  },
+  async created () {
+    try {
+      let response = await fetch('data/channel.json')
+      const chan = await response.json()
+      this.channelState.channel = chan
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  updated () {
+    this.$movePositionInGrid(1, 1)
+  },
+  methods: {
+    move (y) {
+      const trans = document.getElementById('rail')
+      trans.style.transform = 'translate(0,' + y + 'px)'
+    }
+  }
 }
 </script>
 

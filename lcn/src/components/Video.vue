@@ -17,19 +17,19 @@ export default {
     }
   },
   methods: {
-    //On récupère récupère l'élément media-video
-    //On passe au state le temps d'avancement de la video
+    // On récupère récupère l'élément media-video
+    // On passe au state le temps d'avancement de la video
     SelectVideo () {
       const video = document.querySelector('#media-video')
       videoStates.vidDuration = video.duration
       videoStates.curTime = video.currentTime / video.duration
     },
-    //Refresh chaque seconde de l'avancement de la video
+    // Refresh chaque seconde de l'avancement de la video
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
-    },
+    }
 
-  },
+  }
 }
 </script>
 
