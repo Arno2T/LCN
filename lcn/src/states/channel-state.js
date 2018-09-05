@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 export let channelState = new Vue({
-  data:{
+  data: {
     channel: null,
     selectedChannel: null,
     chanFocus: 1,

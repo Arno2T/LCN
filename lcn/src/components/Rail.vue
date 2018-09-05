@@ -5,17 +5,17 @@
 </template>
 
 <script>
-import { channelState } from "../states/channel-state";
-import RailChannel from "./RailChannel.vue"
+import { channelState } from '../states/channel-state'
+import RailChannel from './RailChannel.vue'
 import { keyboardNavigation } from '../mixins/keyboard'
 
 export default {
-  name: "Rail",
+  name: 'Rail',
   mixins: [keyboardNavigation],
   components: {
     RailChannel
   },
-  data() {
+  data () {
     return {
       channelState
     }

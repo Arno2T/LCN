@@ -102,6 +102,25 @@ export default {
             }
         }
     }
+  },
+  async created () {
+    try {
+      let response = await fetch('data/channel.json')
+      const chan = await response.json()
+      this.channelState.channel = chan
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  updated () {
+    this.$movePositionInGrid(1, 1)
+  },
+  methods: {
+    move (y) {
+      const trans = document.getElementById('rail')
+      trans.style.transform = 'translate(0,' + y + 'px)'
+    }
+  }
 }
 </script>
 

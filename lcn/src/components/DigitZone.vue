@@ -14,19 +14,19 @@ export default {
     return {
       digit: '',
       channel: '',
-      elapsed: null, //boolean
+      elapsed: null, // boolean
       timer: null,
       channelStates,
       channelState
     }
   },
   created () {
-    document.addEventListener('keydown', this.showChannel) //listen digit controls
+    document.addEventListener('keydown', this.showChannel) // listen digit controls
   },
   methods: {
     // get channel request and transmit response
-    async tune(){
-      const response =  await fetch('./data/channel.json')
+    async tune () {
+      const response = await fetch('./data/channel.json')
       const results = await response.json()
       const channelSearch = results.find((element) => {
         return element.id == this.channelStates.channelRequest
@@ -44,9 +44,6 @@ export default {
             EventBus.$emit('chanChanged', channelSearch.id)
             return this.channelStates.channelResponse
       }
-      else{
-                return this.channelStates.channelResponse = false
-              }
     },
     showChannel (event) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { // numpad & keybord buttons
@@ -95,5 +92,6 @@ export default {
         font-weight: bolder;
         text-align: center;
         line-height: 4em;
+        text-shadow: black 1px 1px 1px
     }
 </style>

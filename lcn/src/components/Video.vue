@@ -17,28 +17,19 @@ export default {
     }
   },
   methods: {
-    //On récupère l'élément media-video
-    //On passe au states le temps d'avancement de la video
+    // On récupère récupère l'élément media-video
+    // On passe au state le temps d'avancement de la video
     SelectVideo () {
       const video = document.querySelector('#media-video')
       videoStates.vidDuration = video.duration
       videoStates.curTime = video.currentTime / video.duration
     },
-    //Refresh chaque seconde de l'avancement de la video
+    // Refresh chaque seconde de l'avancement de la video
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
-    },
-    //Va envoyer l'heure à laquelle le programme a démarré
-    timeVideoStart () {
-      const moment = require('moment')
-      videoStates.vidStart = moment().format('HH:mm');
-    },
-    //Va envoyer la durée du programme dans le states
-    videoDuration () {
-      const video = document.querySelector('#media-video')
-      videoStates.vidDuration = video.duration
     }
-  },
+
+  }
 }
 </script>
 

@@ -5,11 +5,13 @@
     <Video />
     <Rail :class="{ active: channelState.railDisplay.value }"/>
     <digit-zone/>
+    <alert-message v-if="!this.channelStates.channelResponse"/>
   </div>
 </template>
 
 <script>
 import {channelState} from './states/channel-state'
+import { channelStates } from './states/channelStates.js'
 import Video from './components/Video.vue'
 import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
@@ -24,12 +26,14 @@ export default {
     Date,
     InfoBanner,
     Rail,
-    'digit-zone': DigitZone
+    'digit-zone': DigitZone,
+    'alert-message': AlertMessage
   },
   data () {
-      return {
-        channelState,
-        movies: null
+    return {
+      channelState,
+      channelStates,
+      movies: null,
       }
     },
     async created() {
@@ -58,6 +62,7 @@ export default {
         }
       }
     }
+  }
 }
 </script>
 
