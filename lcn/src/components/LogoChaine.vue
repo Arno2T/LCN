@@ -31,17 +31,7 @@ export default {
             const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
             this.$emit('translate', distance)
         }            
-  },
-  methods: {
-    onFocus () {
-      this.channelState.chanFocus = this.channel.id
-      // calcule de la position du logo sru le rail
-      const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
-      // calcule de la distance entre le bas du logo et le bas du rail
-      const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
-      this.$emit('translate', distance)
     }
-  }
 }
 </script>
 
@@ -51,3 +41,4 @@ export default {
         width: 100%;
     }
 </style>
+
