@@ -9,8 +9,10 @@
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>
-          <div class="timeStart">Start :{{ progTimeStart() }}</div>
-          <div class="timeEnd">End :{{ progTimeEnd() }}</div>
+        <div class="timer">
+          <div class="timeStart">{{ progTimeStart() }}</div>
+          <div class="timeEnd">{{ progTimeEnd() }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,7 +57,6 @@ export default {
       const moment = require('moment')
       const time = this.videoStates.vidDuration
       const minutes = String(Math.floor(time / 60))
-      console.log(minutes)
       const endTime = moment(this.videoStates.vidStart, 'HH:mm:ss').add(minutes, 'minutes').format('HH:mm');
       return endTime
     }

@@ -21,7 +21,6 @@ export let videoStates = new Vue({
     vidDuration: function () {
       if (this.vidDuration) {
         EventBus.$emit('dataChange', this.vidDuration)
-        console.log(this.vidDuration)
       } else {
         EventBus.$emit('pas de durée', this.vidDuration)
       }
