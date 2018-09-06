@@ -9,8 +9,10 @@
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>
-          <div class="timeStart">Start :{{ progTimeStart() }}</div>
-          <div class="timeEnd">End :{{ progTimeEnd() }}</div>
+        <div class="timer">
+          <div class="timeStart">{{ progTimeStart() }}</div>
+          <div class="timeEnd">{{ progTimeEnd() }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -40,6 +42,7 @@ export default {
     upTime () {
       const progress = document.querySelector('#progress-bar')
       progress.value = this.videoStates.dataVideo
+      console.log(progress.value)
     },
     //Refresh chaque seconde la progress-bar
     refreshTime () {
@@ -54,12 +57,11 @@ export default {
       const moment = require('moment')
       const time = this.videoStates.vidDuration
       const minutes = String(Math.floor(time / 60))
-      console.log(minutes)
       const endTime = moment(this.videoStates.vidStart, 'HH:mm:ss').add(minutes, 'minutes').format('HH:mm');
       return endTime
     }
   },
-  //Récupération du changement de la data
+  //Récupération du changement de la data de notre video
   mounted(){
     EventBus.$on('dataChange', (data) => {
       this.videoStates.dataVideo = data
@@ -100,6 +102,13 @@ export default {
     #progress-bar {
       width: 350px;
     }
+  }
+  .timer {
+    width: 350px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   img {
     height: 120px;
