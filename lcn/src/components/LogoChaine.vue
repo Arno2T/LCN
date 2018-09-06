@@ -31,7 +31,6 @@ export default {
             const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
             this.$emit('translate', distance)
         }            
-    }
   },
   methods: {
     onFocus () {

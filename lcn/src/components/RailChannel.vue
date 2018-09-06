@@ -101,7 +101,6 @@ export default {
                 return this.channelStates.channelResponse
             }
         }
-    }
   },
   async created () {
     try {
