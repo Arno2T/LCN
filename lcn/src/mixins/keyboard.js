@@ -42,6 +42,8 @@ export const keyboardNavigation = {
             }
         },
         $movePositionInGrid(x, y) {
+            if (this.canMove && !this.canMove()) return
+
             const newX = this.navigationCoordinates[0] + x
             const newY = this.navigationCoordinates[1] + y
 

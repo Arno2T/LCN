@@ -20,6 +20,9 @@ export default {
       }
     },
     methods: {
+        canMove () {
+            return this.channelState.railDisplay.value
+        },
         onFocus (y) {
             this.channelState.chanFocus = this.channel.id
             // calcule de la position du logo sru le rail

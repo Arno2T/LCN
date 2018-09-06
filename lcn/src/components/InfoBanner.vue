@@ -62,6 +62,7 @@ export default {
 
 <style lang="less" scoped>
 .info {
+  visibility: hidden;
   position: absolute;
   height: 120px;
   width: 100vw;

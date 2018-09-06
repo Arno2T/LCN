@@ -25,6 +25,7 @@ export default {
 
 <style lang="less" scoped>
 #content {
+  visibility: hidden;
   position: absolute;
   overflow: hidden;
   top:0;

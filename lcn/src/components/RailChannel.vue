@@ -52,30 +52,33 @@ export default {
     },
     methods:{
         move(y){
-            console.log("translate: " + y)
-            const trans = document.getElementById('rail')
-            trans.style.transform = "translate(0," + y + "px)"
-            this.tune()
+                console.log("translate: " + y)
+                const trans = document.getElementById('rail')
+                trans.style.transform = "translate(0," + y + "px)"
+                this.tune()
         },
         async tune(){
-            console.log('tune')
+            console.log('tune' + this.channelState.chanFocus)
             const response =  await fetch('data/channel.json')
             const results = await response.json()
             const channelSearch = results.find((element) => {
                 return element.id == this.channelState.chanFocus
             })
+            console.log("id1: " + this.channelStates.channelResponse.id + " id2: " + channelSearch.id)
             if (channelSearch){
-                console.log("channel search: " + channelSearch)
-                this.channelStates.channelResponse = {
-                    id: channelSearch.id,
-                    chaine: channelSearch.chaine,
-                    src: channelSearch.src,
-                    miniature: channelSearch.miniature,
-                    programme: channelSearch.programme,
-                    duree: channelSearch.duree
+                if (this.channelStates.channelResponse.id != channelSearch.id){
+                     console.log("channel search: " + channelSearch)
+                    this.channelStates.channelResponse = {
+                        id: channelSearch.id,
+                        chaine: channelSearch.chaine,
+                        src: channelSearch.src,
+                        miniature: channelSearch.miniature,
+                        programme: channelSearch.programme,
+                        duree: channelSearch.duree
+                    }
+                document.addEventListener('keydown', this.validation)
+                return this.channelStates.channelResponse
                 }
-            document.addEventListener('keydown', this.validation)
-            return this.channelStates.channelResponse
             }
         },
         async validation ({keyCode}){

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Date v-if="railDisplay.value"/>
-    <InfoBanner v-if="railDisplay.value" />
+    <Date :class="{ active: channelState.railDisplay.value }"/>
+    <InfoBanner :class="{ active: channelState.railDisplay.value }"/>
     <Video />
-    <Rail v-if="railDisplay.value"/>
+    <Rail :class="{ active: channelState.railDisplay.value }"/>
     <digit-zone/>
   </div>
 </template>
@@ -28,10 +28,7 @@ export default {
   data () {
       return {
         channelState,
-        movies: null,
-        railDisplay: {
-          value: false
-        }
+        movies: null
       }
     },
     async created() {
@@ -43,18 +40,19 @@ export default {
       }
     },
     created() {
-      document.addEventListener('keydown', this.menuDisplay)
+      document.addEventListener('keyup', this.menuDisplay)
     },
     beforeDestroy(){
-      document.removeEventListener('keydown', this.menuDisplay)
+      document.removeEventListener('keyup', this.menuDisplay)
     },
     methods: {
       menuDisplay(event){
         if (event.keyCode == "77"){
-          if (this.railDisplay.value === false){
-            this.railDisplay.value = true
+          console.log("hello")
+          if (this.channelState.railDisplay.value === false){
+            this.channelState.railDisplay.value = true
           } else {
-            this.railDisplay.value = false
+            this.channelState.railDisplay.value = false
           }
         }
       }
@@ -77,6 +75,9 @@ body {
   .swipe{
     overflow: hidden;
     flex-grow: 1;
+  }
+  .active{
+    visibility: visible;
   }
 }
 </style>
