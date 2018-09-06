@@ -24,6 +24,8 @@ export default {
     async tune () {
       const response = await fetch('./data/channel.json')
       const results = await response.json()
+
+      // return an object with all channel request informations
       const channelSearch = results.find((element) => {
         return element.id == this.channelStates.channelRequest
       })
@@ -42,14 +44,16 @@ export default {
         return this.channelStates.channelResponse = false
       }
     },
+    // listen digit buttons and show channel request on screen during 2 seconds
     showChannel (event) {
       if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) { // numpad & keybord buttons
         if (!this.elapsed) { clearTimeout(this.timer) }
-        this.digit += event.key
-        this.elapsed = false
+        this.digit += event.key  //string that appends digits
+        this.elapsed = false  //clear timer
         if (this.digit.length >= 2) {
-          this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1]
-          this.timer = setTimeout(() => {
+          this.channel = this.digit[this.digit.length - 2] + this.digit[this.digit.length - 1] //the last two numbers of digits string
+          // return channel request and clear digit and channel
+          this.timer = setTimeout(() => {  
             this.channelStates.channelRequest = this.channel
             this.elapsed = true
             this.digit = ''

@@ -25,12 +25,12 @@ export default {
     },
     close(event) {
       const box = document.querySelector(".alert");
-      if (box && event.keyCode === 27) {
+      if (box && event.keyCode === 27) {  //escape key
         this.hide();
       }
     },
     hide() {
-      this.channelStates.channelResponse=true
+      this.channelStates.channelResponse=true //in App.vue, alertMessage is displayed if channelResponse = false
     }
   },
 };
