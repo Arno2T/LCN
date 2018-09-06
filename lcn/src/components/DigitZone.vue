@@ -45,6 +45,8 @@ export default {
             }
             EventBus.$emit('chanChanged', channelSearch.id)
             return this.channelStates.channelResponse
+      } else {
+        return this.channelStates.channelResponse = false
       }
     },
     // listen digit buttons and show channel request on screen during 2 seconds
