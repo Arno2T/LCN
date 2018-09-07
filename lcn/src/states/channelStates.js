@@ -1,7 +1,7 @@
 export const channelStates = {
 
   channelRequest: null,
-  channelResponse: {
+  channelResponse:{
     id: 1,
     chaine: 'TF1',
     src: './assets/logoChaines/tf1.png',
@@ -9,5 +9,6 @@ export const channelStates = {
     miniature: './assets/miniatures/paris.jpg',
     programme: "Ici c'est Paris",
     duree: 180
-  }
+  },
+  currentChannel: null,
 }

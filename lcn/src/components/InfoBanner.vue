@@ -2,10 +2,10 @@
   <div class="info">
     <div class="tib">
       <div class="i">
-        <img :src="this.channelStates.channelResponse.miniature"/>
+        <img :src="this.channelStates.currentChannel.miniature"/>
       </div>
       <div class="tb">
-        <h3>{{ this.channelStates.channelResponse.programme }}</h3>
+        <h3>{{ this.channelStates.currentChannel.programme }}</h3>
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>

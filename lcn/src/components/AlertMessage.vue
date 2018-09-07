@@ -30,6 +30,7 @@ export default {
       }
     },
     hide() {
+
       this.channelStates.channelResponse=true //in App.vue, alertMessage is displayed if channelResponse = false
     }
   },
