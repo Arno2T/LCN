@@ -1,6 +1,9 @@
 <template>
   <div class="info">
     <div class="tib">
+      <div class="ilogo">
+        <img :src="this.channelStates.channelResponse.src">
+      </div>
       <div class="i">
         <img :src="this.channelStates.channelResponse.miniature"/>
       </div>
@@ -40,13 +43,15 @@ export default {
     // On récupère l'élément progress-bar
     // On lui passe les data de la video via le state
     upTime () {
-      const progress = document.querySelector('#progress-bar')
-      progress.value = this.videoStates.dataVideo
+      new Promise((resolve, reject ) => {
+        const progress = document.querySelector('#progress-bar')
+        progress.value = this.videoStates.dataVideo
+      })
      // console.log(progress.value)
     },
     //Refresh chaque seconde la progress-bar
-    refreshTime () {
-      setInterval(this.upTime, 1000)
+    async refreshTime () {
+      setInterval(await this.upTime, 1000)
     },
     //On return l'heure de début du programme à notre div timeStart
     progTimeStart () {
@@ -84,6 +89,17 @@ export default {
     flex-direction: row;
     height: 100%;
     margin-left: 20%;
+  }
+  .ilogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100px;
+    img {
+      height: 12vh;
+      width: 17vh;
+    }
   }
   .i {
     display: flex;
