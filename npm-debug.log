@@ -1,23 +1,26 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'run', 'serve' ]
-2 info using npm@3.5.2
-3 info using node@v8.10.0
+1 verbose cli [ '/home/superadmin/.nvm/versions/node/v4.9.1/bin/node',
+1 verbose cli   '/home/superadmin/.nvm/versions/node/v4.9.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'serve' ]
+2 info using npm@2.15.11
+3 info using node@v4.9.1
 4 verbose config Skipping project config: /home/superadmin/.npmrc. (matches userconfig)
 5 verbose stack Error: missing script: serve
-5 verbose stack     at run (/usr/share/npm/lib/run-script.js:147:19)
-5 verbose stack     at /usr/share/npm/lib/run-script.js:57:5
-5 verbose stack     at /usr/share/npm/node_modules/read-package-json/read-json.js:345:5
-5 verbose stack     at checkBinReferences_ (/usr/share/npm/node_modules/read-package-json/read-json.js:309:45)
-5 verbose stack     at final (/usr/share/npm/node_modules/read-package-json/read-json.js:343:3)
-5 verbose stack     at then (/usr/share/npm/node_modules/read-package-json/read-json.js:113:5)
-5 verbose stack     at ReadFileContext.<anonymous> (/usr/share/npm/node_modules/read-package-json/read-json.js:284:20)
-5 verbose stack     at ReadFileContext.callback (/usr/share/npm/node_modules/graceful-fs/graceful-fs.js:76:16)
-5 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:420:13)
+5 verbose stack     at run (/home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/lib/run-script.js:142:19)
+5 verbose stack     at /home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/lib/run-script.js:58:5
+5 verbose stack     at /home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:356:5
+5 verbose stack     at checkBinReferences_ (/home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:320:45)
+5 verbose stack     at final (/home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:354:3)
+5 verbose stack     at then (/home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:124:5)
+5 verbose stack     at ReadFileContext.<anonymous> (/home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:295:20)
+5 verbose stack     at ReadFileContext.callback (/home/superadmin/.nvm/versions/node/v4.9.1/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16)
+5 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:303:13)
 6 verbose cwd /home/superadmin/Bureau/Live-Channel-Navigation/LCN
 7 error Linux 4.15.0-23-generic
-8 error argv "/usr/bin/node" "/usr/bin/npm" "run" "serve"
-9 error node v8.10.0
-10 error npm  v3.5.2
+8 error argv "/home/superadmin/.nvm/versions/node/v4.9.1/bin/node" "/home/superadmin/.nvm/versions/node/v4.9.1/bin/npm" "run" "serve"
+9 error node v4.9.1
+10 error npm  v2.15.11
 11 error missing script: serve
 12 error If you need help, you may report this error at:
 12 error     <https://github.com/npm/npm/issues>
