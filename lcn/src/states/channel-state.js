@@ -7,6 +7,9 @@ export let channelState = new Vue({
     chanFocus: 1,
     railDisplay: {
       value: false
+    },
+    digitSwitch: {
+      value: false
     }
   }
 })

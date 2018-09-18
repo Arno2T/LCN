@@ -43,7 +43,9 @@ export default {
                 programme: channelSearch.programme,
                 duree: channelSearch.duree
             }
+            this.channelState.digitSwitch.value = true
             EventBus.$emit('chanChanged', channelSearch.id)
+            EventBus.$emit('digitSwitch', channelSearch.id)
             return this.channelStates.channelResponse
       } else {
         return this.channelStates.channelResponse = false

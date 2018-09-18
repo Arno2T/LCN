@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Date :class="{ active: channelState.railDisplay.value }"/>
-    <InfoBanner :class="{ active: channelState.railDisplay.value }"/>
+    <InfoBanner :class="{ active: channelState.railDisplay.value, digitSwitch: channelState.digitSwitch.value }"/>
     <Video />
     <Rail :class="{ active: channelState.railDisplay.value }"/>
     <digit-zone/>
@@ -12,6 +12,7 @@
 <script>
 import {channelState} from './states/channel-state'
 import { channelStates } from './states/channelStates.js'
+import { EventBus } from './main'
 import Video from './components/Video.vue'
 import Date from './components/Date.vue'
 import InfoBanner from './components/InfoBanner.vue'
@@ -47,6 +48,11 @@ export default {
     created() {
       document.addEventListener('keyup', this.menuDisplay)
     },
+    mounted () {
+        EventBus.$on('chanChanged', chanId => {
+            this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
+        })
+    },
     beforeDestroy(){
       document.removeEventListener('keyup', this.menuDisplay)
     },
@@ -81,7 +87,7 @@ body {
     overflow: hidden;
     flex-grow: 1;
   }
-  .active{
+  .active, .digitSwitch{
     visibility: visible;
   }
 }

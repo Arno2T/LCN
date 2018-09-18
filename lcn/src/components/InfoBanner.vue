@@ -22,6 +22,8 @@
 import { EventBus } from '../main'
 import { videoStates } from '../states/videoState'
 import { channelStates } from '../states/channelStates'
+import {channelState} from '../states/channel-state'
+
 
 export default {
   name: 'InfoBanner',
@@ -29,7 +31,8 @@ export default {
   data () {
     return {
       videoStates,
-      channelStates
+      channelStates,
+      channelState
     }
   },
   props: {
@@ -66,7 +69,15 @@ export default {
     EventBus.$on('dataChange', (data) => {
       this.videoStates.dataVideo = data
     })
-  }
+  },
+  created () {
+        EventBus.$on('digitSwitch', infoOff => {
+            setTimeout(() => { 
+            console.log("switch off") 
+            this.channelState.digitSwitch.value = false
+          }, 4000)
+        })
+    },
 }
 </script>
 
