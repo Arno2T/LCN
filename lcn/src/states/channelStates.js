@@ -5,7 +5,7 @@ export const channelStates = {
     id: 1,
     chaine: 'TF1',
     src: './assets/logoChaines/tf1.png',
-    videoId: "http://is3.4chan.org/sp/1535546635101.webm",
+    videoId: "http://mazwai.com/system/posts/videos/000/000/192/original/le-temps-dun-paris.mp4?1445792574",
     miniature: './assets/miniatures/paris.jpg',
     programme: "Ici c'est Paris",
     duree: 180
