@@ -5,10 +5,15 @@
         <img :src="this.channelStates.channelResponse.src">
       </div>
       <div class="i">
-        <img :src="this.channelStates.channelResponse.miniature"/>
+        <img v-if="this.channelStates.channelResponse" :src="this.channelStates.channelResponse.miniature" />
+        <img v-else :src="this.channelStates.currentChannel.miniature" />
+
       </div>
       <div class="tb">
-        <h3>{{ this.channelStates.channelResponse.programme }}</h3>
+        <h3 v-if="this.channelStates.channelResponse" >
+          {{ this.channelStates.channelResponse.programme }}</h3>
+          <h3 v-else :src="this.channelStates.currentChannel.miniature" >
+          {{ this.channelStates.currentChannel.programme }}</h3>
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>

@@ -46,7 +46,8 @@ export default {
             this.channelState.digitSwitch.value = true
             EventBus.$emit('chanChanged', channelSearch.id)
             EventBus.$emit('digitSwitch', channelSearch.id)
-            return this.channelStates.channelResponse
+            this.channelStates.currentChannel= this.channelStates.channelResponse // keep in memory current channel when wrong channel is requested
+            return this.channelStates.channelResponse, this.channelStates.currentChannel
       } else {
         return this.channelStates.channelResponse = false
       }
