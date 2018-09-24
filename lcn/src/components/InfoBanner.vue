@@ -1,9 +1,6 @@
 <template>
   <div class="info">
     <div class="tib">
-      <div class="ilogo">
-        <img :src="this.channelStates.currentChannel.src" />
-      </div>
       <div class="i">
         <img :src="this.channelStates.currentChannel.miniature" />
       </div>
@@ -71,20 +68,19 @@ export default {
       return endTime
     }
   },
-  // Récupération du changement de la data de notre video
-  mounted () {
-    EventBus.$on('dataChange', (data) => {
+  //Récupération du changement de la data de notre video
+  mounted(){
+    EventBus.$on('curTimeChange', (data) => {
       this.videoStates.dataVideo = data
     })
   },
   created () {
-    EventBus.$on('digitSwitch', infoOff => {
-      setTimeout(() => {
-        console.log('switch off')
-        this.channelState.digitSwitch.value = false
-      }, 4000)
-    })
-  }
+        EventBus.$on('digitSwitch', infoOff => {
+            setTimeout(() => {
+            this.channelState.digitSwitch.value = false
+          }, 4000)
+        })
+    },
 }
 </script>
 

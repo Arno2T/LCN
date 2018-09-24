@@ -31,12 +31,7 @@ export default {
     // Va envoyer l'heure à laquelle le programme a démarré
     timeVideoStart () {
       const moment = require('moment')
-      videoStates.vidStart = moment().format('HH:mm')
-    },
-    // Va envoyer la durée du programme dans le states
-    videoDuration () {
-      const video = document.querySelector('#media-video')
-      videoStates.vidDuration = video.duration
+      videoStates.vidStart = moment().format('HH:mm');
     }
   }
 }
