@@ -40,6 +40,7 @@ export default {
         }
     },
      mounted () {
+        // deplace le rail en fonction de la chaine selectionné via la digit zone
         EventBus.$on('chanChanged', chanId => {
             this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
         })
@@ -52,22 +53,19 @@ export default {
     },
     methods:{
         move(y){
-                console.log("translate: " + y)
-                const trans = document.getElementById('rail')
-                trans.style.transform = "translate(0," + y + "px)"
-                this.tune()
+            //methode pour deplacer les logos de chaine dans le rail
+            const trans = document.getElementById('rail')
+            trans.style.transform = "translate(0," + y + "px)"
+            this.tune()
         },
         async tune(){
-            console.log('tune' + this.channelState.chanFocus)
+            //methode pour recuperer la video associé a la chaine en cours
             const response =  await fetch('data/channel.json')
             const results = await response.json()
             const channelSearch = results.find((element) => {
                 return element.id == this.channelState.chanFocus
             })
-            console.log("id1: " + this.channelStates.channelResponse.id + " id2: " + channelSearch.id)
             if (channelSearch){
-                if (this.channelStates.channelResponse.id != channelSearch.id){
-                     console.log("channel search: " + channelSearch)
                     this.channelStates.channelResponse = {
                         id: channelSearch.id,
                         chaine: channelSearch.chaine,
@@ -78,15 +76,15 @@ export default {
                     }
                 document.addEventListener('keydown', this.validation)
                 this.channelStates.currentChannel= this.channelStates.channelResponse // keep in memory current channel when wrong channel is requested
-                 return this.channelStates.channelResponse, this.channelStates.currentChannel
+                 return this.channelStates.channelResponse, this.channelStates.currentChannel              
                
-                }
             }
         },
         async validation ({keyCode}){
+            //methode pour valider le changement de chaine et lancer la diffusion de la video
             if (keyCode == 13){
-                console.log("chaine tv: " + this.channelStates.channelResponse.id)
-                const response = await fetch('data/channel.json')
+                if (this.channelState.channelView.value != this.channelStates.channelResponse.id) {
+                    const response = await fetch('data/channel.json')
                 const results = await response.json()
                 const channelSearch = results.find((element) => {
                     return element.id == this.channelStates.channelResponse.id
@@ -100,7 +98,10 @@ export default {
                     programme: channelSearch.programme,
                     duree: channelSearch.duree
                 }
+                this.channelState.channelView.value = this.channelStates.channelResponse.id
                 return this.channelStates.channelResponse
+                }
+                
             }
         }
     }

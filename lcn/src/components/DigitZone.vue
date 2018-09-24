@@ -8,6 +8,8 @@
 import { channelStates } from '../states/channelStates.js'
 import {channelState} from '../states/channel-state'
 import { EventBus } from '../main'
+import { keyboardNavigation } from '../mixins/keyboard'
+
 
 export default {
   data () {
@@ -44,9 +46,10 @@ export default {
                 duree: channelSearch.duree
             }
             this.channelState.digitSwitch.value = true
-            EventBus.$emit('chanChanged', channelSearch.id)
             EventBus.$emit('digitSwitch', channelSearch.id)
+            EventBus.$emit('chanChanged', channelSearch.id)
             this.channelStates.currentChannel= this.channelStates.channelResponse // keep in memory current channel when wrong channel is requested
+            this.channelState.channelView.value = channelSearch.id
             return this.channelStates.channelResponse, this.channelStates.currentChannel
       } else {
         return this.channelStates.channelResponse = false
