@@ -1,6 +1,6 @@
 <template>
   <div class="player">
-    <video id="media-video" :src="this.channelStates.channelResponse.videoId" controls autoplay loop muted>{{ refreshTime() }} {{ timeVideoStart() }}</video>
+    <video id="media-video" :src="this.channelStates.channelResponse.videoId" autoplay loop muted>{{ refreshTime() }} {{ timeVideoStart() }}</video>
   </div>
 </template>
 
@@ -32,11 +32,6 @@ export default {
     timeVideoStart () {
       const moment = require('moment')
       videoStates.vidStart = moment().format('HH:mm');
-    },
-    //Va envoyer la durée du programme dans le states
-    videoDuration () {
-      const video = document.querySelector('#media-video')
-      videoStates.vidDuration = video.duration
     }
   },
 }
