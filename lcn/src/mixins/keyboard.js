@@ -39,13 +39,13 @@ export const keyboardNavigation = {
           return this.$movePositionInGrid(0, -1)
                 // case 37:
                 //     return this.$movePositionInGrid(-1, 0)
-            }
-        },
-        $movePositionInGrid(x, y) {
-            if (this.canMove && !this.canMove()) return
+      }
+    },
+    $movePositionInGrid (x, y) {
+      if (this.canMove && !this.canMove()) return
 
-            const newX = this.navigationCoordinates[0] + x
-            const newY = this.navigationCoordinates[1] + y
+      const newX = this.navigationCoordinates[0] + x
+      const newY = this.navigationCoordinates[1] + y
 
       if (newX === 1 && newY === 1 && Object.keys(this.$refs).length === 0) {
         this.$getNavigationFocus()

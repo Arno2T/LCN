@@ -17,8 +17,8 @@ export default {
     }
   },
   methods: {
-    //On récupère l'élément media-video
-    //On passe au states le temps d'avancement de la video
+    // On récupère l'élément media-video
+    // On passe au states le temps d'avancement de la video
     SelectVideo () {
       const video = document.querySelector('#media-video')
       videoStates.vidDuration = video.duration
@@ -28,12 +28,17 @@ export default {
     refreshTime () {
       setInterval(this.SelectVideo, 1000)
     },
-    //Va envoyer l'heure à laquelle le programme a démarré
+    // Va envoyer l'heure à laquelle le programme a démarré
     timeVideoStart () {
       const moment = require('moment')
-      videoStates.vidStart = moment().format('HH:mm');
+      videoStates.vidStart = moment().format('HH:mm')
+    },
+    // Va envoyer la durée du programme dans le states
+    videoDuration () {
+      const video = document.querySelector('#media-video')
+      videoStates.vidDuration = video.duration
     }
-  },
+  }
 }
 </script>
 
