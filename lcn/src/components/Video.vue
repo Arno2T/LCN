@@ -1,6 +1,6 @@
 <template>
   <div class="player">
-    <video id="media-video" :src="this.channelStates.channelResponse.videoId" controls autoplay loop muted>{{ refreshTime() }} {{ timeVideoStart() }}</video>
+    <video id="media-video" :src="this.channelStates.channelResponse.videoId" controls autoplay loop>{{ refreshTime() }} {{ timeVideoStart() }}</video>
   </div>
 </template>
 
