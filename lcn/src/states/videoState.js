@@ -13,23 +13,9 @@ export let videoStates = new Vue({
   watch: {
     curTime: function () {
       if (this.curTime) {
-        EventBus.$emit('dataChange', this.curTime)
+        EventBus.$emit('curTimeChange', this.curTime)
       } else {
         EventBus.$emit('En pause', this.curTime)
-      }
-    },
-    vidDuration: function () {
-      if (this.vidDuration) {
-        EventBus.$emit('dataChange', this.vidDuration)
-      } else {
-        EventBus.$emit('pas de durée', this.vidDuration)
-      }
-    },
-    vidStart: function () {
-      if (this.vidStart) {
-        EventBus.$emit('dataChange', this.vidStart)
-      } else {
-        EventBus.$emit('no start', this.vidStart)
       }
     }
   }
