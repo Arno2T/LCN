@@ -2,18 +2,13 @@
   <div class="info">
     <div class="tib">
       <div class="ilogo">
-        <img :src="this.channelStates.channelResponse.src">
+        <img :src="this.channelStates.currentChannel.src" />
       </div>
       <div class="i">
-        <img v-if="this.channelStates.channelResponse" :src="this.channelStates.channelResponse.miniature" />
-        <img v-else :src="this.channelStates.currentChannel.miniature" />
-
+        <img :src="this.channelStates.currentChannel.miniature" />
       </div>
       <div class="tb">
-        <h3 v-if="this.channelStates.channelResponse" >
-          {{ this.channelStates.channelResponse.programme }}</h3>
-          <h3 v-else :src="this.channelStates.currentChannel.miniature" >
-          {{ this.channelStates.currentChannel.programme }}</h3>
+        <h3>{{ this.channelStates.currentChannel.programme }}</h3>
         <div class="progress">
           <progress id="progress-bar" value="0">{{ refreshTime() }}</progress>
         </div>
@@ -31,7 +26,6 @@ import { EventBus } from '../main'
 import { videoStates } from '../states/videoState'
 import { channelStates } from '../states/channelStates'
 import {channelState} from '../states/channel-state'
-
 
 export default {
   name: 'InfoBanner',
@@ -51,43 +45,43 @@ export default {
     // On récupère l'élément progress-bar
     // On lui passe les data de la video via le state
     upTime () {
-      new Promise((resolve, reject ) => {
+      new Promise((resolve, reject) => {
         const progress = document.querySelector('#progress-bar')
         progress.value = this.videoStates.dataVideo
       })
-     // console.log(progress.value)
+      // console.log(progress.value)
     },
-    //Refresh chaque seconde la progress-bar
+    // Refresh chaque seconde la progress-bar
     async refreshTime () {
       setInterval(await this.upTime, 1000)
     },
-    //On return l'heure de début du programme à notre div timeStart
+    // On return l'heure de début du programme à notre div timeStart
     progTimeStart () {
       return this.videoStates.vidStart
     },
-    //On return l'heure de fin de notre programme à notre div timeEnd
+    // On return l'heure de fin de notre programme à notre div timeEnd
     progTimeEnd () {
       const moment = require('moment')
       const time = this.videoStates.vidDuration
       const minutes = String(Math.floor(time / 60))
-      const endTime = moment(this.videoStates.vidStart, 'HH:mm:ss').add(minutes, 'minutes').format('HH:mm');
+      const endTime = moment(this.videoStates.vidStart, 'HH:mm:ss').add(minutes, 'minutes').format('HH:mm')
       return endTime
     }
   },
-  //Récupération du changement de la data de notre video
-  mounted(){
+  // Récupération du changement de la data de notre video
+  mounted () {
     EventBus.$on('dataChange', (data) => {
       this.videoStates.dataVideo = data
     })
   },
   created () {
-        EventBus.$on('digitSwitch', infoOff => {
-            setTimeout(() => { 
-            console.log("switch off") 
-            this.channelState.digitSwitch.value = false
-          }, 4000)
-        })
-    },
+    EventBus.$on('digitSwitch', infoOff => {
+      setTimeout(() => {
+        console.log('switch off')
+        this.channelState.digitSwitch.value = false
+      }, 4000)
+    })
+  }
 }
 </script>
 

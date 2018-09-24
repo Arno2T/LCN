@@ -34,40 +34,40 @@ export default {
     return {
       channelState,
       channelStates,
-      movies: null,
-      }
-    },
-    async created() {
-      try {
-        let reponse = await fetch('channel.json')
-        this.movies = await response.json();
-      } catch (error) {
-        console.log(error)
-      }
-    },
-    created() {
-      document.addEventListener('keyup', this.menuDisplay)
-    },
-    mounted () {
-        EventBus.$on('chanChanged', chanId => {
-            this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
-        })
-    },
-    beforeDestroy(){
-      document.removeEventListener('keyup', this.menuDisplay)
-    },
-    methods: {
-      menuDisplay(event){
-        if (event.keyCode == "77"){
-          console.log("hello")
-          if (this.channelState.railDisplay.value === false){
-            this.channelState.railDisplay.value = true
-          } else {
-            this.channelState.railDisplay.value = false
-          }
+      movies: null
+    }
+  },
+  async created () {
+    try {
+      let reponse = await fetch('channel.json')
+      this.movies = await response.json()
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  created () {
+    document.addEventListener('keyup', this.menuDisplay)
+  },
+  mounted () {
+    EventBus.$on('chanChanged', chanId => {
+      this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
+    })
+  },
+  beforeDestroy () {
+    document.removeEventListener('keyup', this.menuDisplay)
+  },
+  methods: {
+    menuDisplay (event) {
+      if (event.keyCode == '77') {
+        console.log('hello')
+        if (this.channelState.railDisplay.value === false) {
+          this.channelState.railDisplay.value = true
+        } else {
+          this.channelState.railDisplay.value = false
         }
       }
     }
+  }
 }
 </script>
 

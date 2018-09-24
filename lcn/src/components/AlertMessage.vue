@@ -20,27 +20,28 @@ export default {
   },
   methods: {
     alert() {
-      if (this.channelStates.channelResponse === false)
+      if (this.channelStates.channelResponse === false) {
         this.message = "Cette chaîne n'est pas définie";
+      }
     },
     close(event) {
       const box = document.querySelector(".alert");
-      if (box && event.keyCode === 27) {  //escape keyCOde:27
+      if (box && event.keyCode === 27) {
+        // escape keyCode:27
         this.hide();
       }
     },
     hide() {
-
-      this.channelStates.channelResponse=true //in App.vue, alertMessage is displayed if channelResponse = false
+      this.channelStates.channelResponse = true; // in App.vue, alertMessage is displayed if channelResponse = false
     }
-  },
+  }
 };
 </script>
 
 <style>
 .alert {
   height: 10%;
-  width: 40%;
+  width: 700px;
   border: 19x solid black;
   border-radius: 5px;
   box-shadow: 0 0 5px 5px white;

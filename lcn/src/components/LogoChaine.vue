@@ -1,7 +1,7 @@
 <template>
     <div :class="{ 'focus': $hasFocus() }">
         <img :src= "channel.src" @digit="onFocus"/>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -9,29 +9,29 @@ import {channelState} from '../states/channel-state'
 import { keyboardNavigation } from '../mixins/keyboard'
 
 export default {
-    name:'Logo-chaine',
-    mixins: [keyboardNavigation],
-    props:{
-        channel : Object
-    },
-    data () {
-      return {
-        channelState,
-      }
-    },
-    methods: {
-        canMove () {
-            return this.channelState.railDisplay.value
-        },
-        onFocus (y) {
-            this.channelState.chanFocus = this.channel.id
-            // calcule de la position du logo sru le rail
-            const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
-            // calcule de la distance entre le bas du logo et le bas du rail
-            const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
-            this.$emit('translate', distance)
-        }            
+  name: 'Logo-chaine',
+  mixins: [keyboardNavigation],
+  props: {
+    channel: Object
+  },
+  data () {
+    return {
+      channelState
     }
+  },
+  methods: {
+    canMove () {
+      return this.channelState.railDisplay.value
+    },
+    onFocus (y) {
+      this.channelState.chanFocus = this.channel.id
+      // calcule de la position du logo sru le rail
+      const offsetPosition = this.$el.offsetTop + this.$el.clientHeight
+      // calcule de la distance entre le bas du logo et le bas du rail
+      const distance = this.$el.parentElement.parentElement.clientHeight - offsetPosition
+      this.$emit('translate', distance)
+    }
+  }
 }
 </script>
 
@@ -41,4 +41,3 @@ export default {
         width: 100%;
     }
 </style>
-

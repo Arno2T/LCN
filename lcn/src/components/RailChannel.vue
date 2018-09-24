@@ -13,97 +13,96 @@
 
 <script>
 import LogoChaine from './LogoChaine.vue'
-import { channelState } from "../states/channel-state";
+import { channelState } from '../states/channel-state'
 import { channelStates } from '../states/channelStates.js'
 import { keyboardNavigation } from '../mixins/keyboard'
 import { EventBus } from '../main'
 
 export default {
-    name: 'RailChannel',
-    mixins: [keyboardNavigation],
-    components: {
-        LogoChaine
-    },
-    data() {
-        return {
-            channelState,
-            channelStates
-        }
-    },
-    async created (){
-        try{
-            let response = await fetch("data/channel.json")
-            const chan = await response.json()
-            this.channelState.channel = chan
-        } catch (error){
-            console.error(error);
-        }
-    },
-     mounted () {
-        EventBus.$on('chanChanged', chanId => {
-            this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
-        })
-    },
-    updated () {
-        this.$movePositionInGrid(1, 1)
-    },
-    beforeDestroy(){
-        document.removeEventListener('keydown', this.validation)
-    },
-    methods:{
-        move(y){
-                console.log("translate: " + y)
-                const trans = document.getElementById('rail')
-                trans.style.transform = "translate(0," + y + "px)"
-                this.tune()
-        },
-        async tune(){
-            console.log('tune' + this.channelState.chanFocus)
-            const response =  await fetch('data/channel.json')
-            const results = await response.json()
-            const channelSearch = results.find((element) => {
-                return element.id == this.channelState.chanFocus
-            })
-            console.log("id1: " + this.channelStates.channelResponse.id + " id2: " + channelSearch.id)
-            if (channelSearch){
-                if (this.channelStates.channelResponse.id != channelSearch.id){
-                     console.log("channel search: " + channelSearch)
-                    this.channelStates.channelResponse = {
-                        id: channelSearch.id,
-                        chaine: channelSearch.chaine,
-                        src: channelSearch.src,
-                        miniature: channelSearch.miniature,
-                        programme: channelSearch.programme,
-                        duree: channelSearch.duree
-                    }
-                document.addEventListener('keydown', this.validation)
-                this.channelStates.currentChannel= this.channelStates.channelResponse // keep in memory current channel when wrong channel is requested
-                 return this.channelStates.channelResponse, this.channelStates.currentChannel
-               
-                }
-            }
-        },
-        async validation ({keyCode}){
-            if (keyCode == 13){
-                console.log("chaine tv: " + this.channelStates.channelResponse.id)
-                const response = await fetch('data/channel.json')
-                const results = await response.json()
-                const channelSearch = results.find((element) => {
-                    return element.id == this.channelStates.channelResponse.id
-                })
-                this.channelStates.channelResponse = {
-                    id: channelSearch.id,
-                    chaine: channelSearch.chaine,
-                    src: channelSearch.src,
-                    videoId: channelSearch.videoId,
-                    miniature: channelSearch.miniature,
-                    programme: channelSearch.programme,
-                    duree: channelSearch.duree
-                }
-                return this.channelStates.channelResponse
-            }
-        }
+  name: 'RailChannel',
+  mixins: [keyboardNavigation],
+  components: {
+    LogoChaine
+  },
+  data () {
+    return {
+      channelState,
+      channelStates
     }
+  },
+  async created () {
+    try {
+      let response = await fetch('data/channel.json')
+      const chan = await response.json()
+      this.channelState.channel = chan
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  mounted () {
+    EventBus.$on('chanChanged', chanId => {
+      this.$movePositionInGrid(0, chanId - this.navigationCoordinates[1])
+    })
+  },
+  updated () {
+    this.$movePositionInGrid(1, 1)
+  },
+  beforeDestroy () {
+    document.removeEventListener('keydown', this.validation)
+  },
+  methods: {
+    move (y) {
+      console.log('translate: ' + y)
+      const trans = document.getElementById('rail')
+      trans.style.transform = 'translate(0,' + y + 'px)'
+      this.tune()
+    },
+    async tune () {
+      console.log('tune' + this.channelState.chanFocus)
+      const response = await fetch('data/channel.json')
+      const results = await response.json()
+      const channelSearch = results.find((element) => {
+        return element.id == this.channelState.chanFocus
+      })
+      console.log('id1: ' + this.channelStates.channelResponse.id + ' id2: ' + channelSearch.id)
+      if (channelSearch) {
+        if (this.channelStates.channelResponse.id != channelSearch.id) {
+          console.log('channel search: ' + channelSearch)
+          this.channelStates.channelResponse = {
+            id: channelSearch.id,
+            chaine: channelSearch.chaine,
+            src: channelSearch.src,
+            miniature: channelSearch.miniature,
+            programme: channelSearch.programme,
+            duree: channelSearch.duree
+          }
+          document.addEventListener('keydown', this.validation)
+          this.channelStates.currentChannel = this.channelStates.channelResponse // keep in memory current channel when wrong channel is requested
+          return this.channelStates.channelResponse, this.channelStates.currentChannel
+        }
+      }
+    },
+    async validation ({keyCode}) {
+      if (keyCode == 13) {
+        console.log('chaine tv: ' + this.channelStates.channelResponse.id)
+        const response = await fetch('data/channel.json')
+        const results = await response.json()
+        const channelSearch = results.find((element) => {
+          return element.id == this.channelStates.channelResponse.id
+        })
+        this.channelStates.channelResponse = {
+          id: channelSearch.id,
+          chaine: channelSearch.chaine,
+          src: channelSearch.src,
+          videoId: channelSearch.videoId,
+          miniature: channelSearch.miniature,
+          programme: channelSearch.programme,
+          duree: channelSearch.duree
+        }
+        return this.channelStates.channelResponse
+      }
+    }
+  }
 }
 </script>
 
