@@ -1,11 +1,11 @@
 <template>
   <div class="info">
     <div class="tib">
-      <div class="ilogo">
-        <img :src="this.channelStates.currentChannel.src" />
-      </div>
       <div class="i">
         <img :src="this.channelStates.currentChannel.miniature" />
+      </div>
+      <div class="ilogo">
+        <img :src="this.channelStates.channelResponse.src">
       </div>
       <div class="tb">
         <h3>{{ this.channelStates.currentChannel.programme }}</h3>
@@ -45,7 +45,7 @@ export default {
     // On récupère l'élément progress-bar
     // On lui passe les data de la video via le state
     upTime () {
-      new Promise((resolve, reject) => {
+      return new Promise((resolve, reject ) => {
         const progress = document.querySelector('#progress-bar')
         progress.value = this.videoStates.dataVideo
       })
@@ -68,20 +68,19 @@ export default {
       return endTime
     }
   },
-  // Récupération du changement de la data de notre video
-  mounted () {
-    EventBus.$on('dataChange', (data) => {
+  //Récupération du changement de la data de notre video
+  mounted(){
+    EventBus.$on('curTimeChange', (data) => {
       this.videoStates.dataVideo = data
     })
   },
   created () {
-    EventBus.$on('digitSwitch', infoOff => {
-      setTimeout(() => {
-        console.log('switch off')
-        this.channelState.digitSwitch.value = false
-      }, 4000)
-    })
-  }
+        EventBus.$on('digitSwitch', infoOff => {
+            setTimeout(() => {
+            this.channelState.digitSwitch.value = false
+          }, 4000)
+        })
+    },
 }
 </script>
 
@@ -101,9 +100,12 @@ export default {
     margin-left: 20%;
   }
   .ilogo {
-    display: flex;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 35px;
     justify-content: center;
     align-items: center;
+    left: 0px;
     height: 100%;
     width: 100px;
     img {
