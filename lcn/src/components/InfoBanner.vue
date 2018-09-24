@@ -49,7 +49,6 @@ export default {
         const progress = document.querySelector('#progress-bar')
         progress.value = this.videoStates.dataVideo
       })
-      // console.log(progress.value)
     },
     // Refresh chaque seconde la progress-bar
     async refreshTime () {

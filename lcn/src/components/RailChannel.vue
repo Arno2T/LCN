@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     move (y) {
-      console.log('translate: ' + y)
       const trans = document.getElementById('rail')
       trans.style.transform = 'translate(0,' + y + 'px)'
       this.tune()
