@@ -10,6 +10,9 @@ export let channelState = new Vue({
     },
     digitSwitch: {
       value: false
+    },
+    channelView: {
+      value: 1
     }
   }
 })
